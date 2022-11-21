@@ -87,6 +87,7 @@ console.log("does " + random + " equal 2? " + isTwo(random));
 function calculateTip(tipPercent, total){
     return (tipPercent * total).toFixed(2);
 }
+
 /**
  * TODO:
  * Use prompt and alert in combination with your calculateTip function to
