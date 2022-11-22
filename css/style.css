@@ -14,8 +14,17 @@ p{
 
 }
 
+button{
+
+    margin-bottom: 20px;
+}
+
 body{
     background: beige;
+}
+
+.center{
+    text-align: center;
 }
 
 
