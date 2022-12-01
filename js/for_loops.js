@@ -22,12 +22,14 @@ function randNumCheck(){
 }
 
 function pyramidNum(){
-    for(let i = 1;i<10;i++) {
-        let str = "";
-        for(let l = 0;l<i;l++) {
-            str = str + i.toString();
-        }
-        console.log(str);
+    for(let i = 1; i<10; i++) {
+        console.log(("" + i + i + i + i + i + i + i + i + i).slice(-i))
+
+    //     let str = "";
+    //     for(let l = 0; l<i; l++) {
+    //         str = str + i.toString();
+    //     }
+    //     console.log(str);
     }
 }
 
@@ -45,5 +47,5 @@ function countDown(){
 
 // showMultiplicationTable(7);
 // randNumCheck();
-// pyramidNum();
+pyramidNum();
 // countDown();
