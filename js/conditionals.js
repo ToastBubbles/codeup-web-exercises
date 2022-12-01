@@ -210,7 +210,5 @@ function runMath(number){
             positive: (number > 0)
         }
 
-
-
 }
 
