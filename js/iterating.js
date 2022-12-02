@@ -48,6 +48,8 @@
      *  > second([1, 2, 3, 4, 5]) // returns 2
      *  > last([1, 2, 3, 4, 5]) // return 5
      */
+
+    let numArray = [1,2,3,4,5]
     function first(array){
         return array[0];
     }
@@ -59,9 +61,9 @@
     }
 
 
-    console.log(`first element in names array is ${first(names)}.`)
-    console.log(`second element in names array is ${second(names)}.`)
-    console.log(`last element in names array is ${last(names)}.`)
+    console.log(`first element in names array is ${first(numArray)}.`)
+    console.log(`second element in numArray array is ${second(numArray)}.`)
+    console.log(`last element in numArray array is ${last(numArray)}.`)
 
 
 })();
