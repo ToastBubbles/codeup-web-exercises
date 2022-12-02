@@ -66,4 +66,15 @@
     console.log(`last element in numArray array is ${last(numArray)}.`)
 
 
+    const numbers = [12, 32, 10, 53, 43, 2]
+
+    function arrSum(arr){
+        let total = 0;
+        arr.forEach(num => total += num);
+        return total;
+    }
+
+    console.log(arrSum(numbers));
+
+
 })();
