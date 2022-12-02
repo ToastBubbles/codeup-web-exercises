@@ -66,15 +66,53 @@
     console.log(`last element in numArray array is ${last(numArray)}.`)
 
 
-    const numbers = [12, 32, 10, 53, 43, 2]
 
-    function arrSum(arr){
+    //console.log(shrimp)
+
+    //var shrimp = "hi"
+
+
+    const numbers = [12, 32, 15, 53, 43, 2]
+
+    function returnArrSum(arr){
         let total = 0;
         arr.forEach(num => total += num);
         return total;
     }
 
-    console.log(arrSum(numbers));
+    console.log(returnArrSum(numbers));
+
+
+
+
+
+
+
+
+
+
+
+    let foods = [
+        "bacon",
+        "eggs",
+        "omlet",
+        "orzo",
+        "bagel",
+        "cereal",
+        "orange juice",
+        "ham",
+        "toast"
+    ]
+    let vowels = ["a","e","i","o","u"]
+
+
+
+
+    foods.forEach(food => {
+        if(vowels.includes(food.charAt(0))){
+            console.log(food)
+        }
+    });
 
 
 })();
