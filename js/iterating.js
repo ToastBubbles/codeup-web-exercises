@@ -116,3 +116,20 @@
 
 
 })();
+
+
+// ============================= !! MINI-EXERCISE 1 !!
+
+/*
+    1. Create an array the string elements 'April', 'May', 'June'
+    2. Add 'July' in the correct place of the array
+    3. Add 'March' in the correct place of the array
+    4. July is too hot; remove it from the array.
+    Console log the result and verify you get ['March', 'April', 'May', 'June']
+ */
+let months = ['April','May','June'];
+
+months.push('July');
+months.unshift('March');
+months.pop();
+console.log(months);
