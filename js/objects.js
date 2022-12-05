@@ -134,17 +134,18 @@
      */
 
     function createBook(title, auth){
-        //let authArray = auth.split(' ');
+        let authArray = auth.split(' ');
         return {
             title: title,
             author:{
-                firstName: auth.split(' ')[0],
-                lastName: auth.split(' ')[1]
+                firstName: authArray[0],
+                lastName: authArray[authArray.length - 1]
             }
         }
     }
-    books.push(createBook('booktitle', 'will johnson'))
+    books.push(createBook('booktitle', 'william joe billy J. johnson'))
     console.log(books)
+    showBookInfo(books[books.length-1])
 
     function showBookInfo(book){
         console.log(books.indexOf(book));
