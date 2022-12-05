@@ -133,3 +133,32 @@ months.push('July');
 months.unshift('March');
 months.pop();
 console.log(months);
+
+
+
+// ============================= !! MINI-EXERCISE 2 !!
+
+/*
+    1. Put the first names of everyone in your row in the order they are sitting (just your half of the classroom)
+    2. Log the alphabetical order of everyone in your row
+    3. Log the reverse alphabetical order of everyone in your row
+    4. Log everyone in the row in reverse order
+    5. Log an array of just the first two students in the row (left to right)
+    6. Log everyone in the row in a single string separated by spaces
+    7. Log everyone in the row in a single string separated by underscores
+ */
+
+
+let firstNames = ['Kailan','Lonnie','Horace','Jeff'];
+let alphabeticalNames = firstNames.slice().sort();
+console.log(alphabeticalNames);
+console.log(alphabeticalNames.reverse());
+console.log(firstNames.reverse())
+console.log(firstNames.slice(2).reverse())
+console.log(firstNames.join(" "))
+console.log(firstNames.join("_"))
+
+
+
+
+
