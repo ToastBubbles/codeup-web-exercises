@@ -159,6 +159,15 @@ console.log(firstNames.join(" "))
 console.log(firstNames.join("_"))
 
 
+const phoneNumbers = '210-555-2020\n230-555-2020\n512-555-3030';
+
+function breakPhoneNumbers(str){
+    console.log(str.split('-').join('').split('\n'));
+}
+
+breakPhoneNumbers(phoneNumbers);
+
+
 
 
 
