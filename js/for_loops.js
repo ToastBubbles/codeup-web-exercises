@@ -23,13 +23,13 @@ function randNumCheck(){
 
 function pyramidNum(){
     for(let i = 1; i<10; i++) {
-        console.log(("" + i + i + i + i + i + i + i + i + i).slice(-i))
+       // console.log(("" + i + i + i + i + i + i + i + i + i).slice(-i))
 
-    //     let str = "";
-    //     for(let l = 0; l<i; l++) {
-    //         str = str + i.toString();
-    //     }
-    //     console.log(str);
+        let str = "";
+        for(let l = 0; l<i; l++) {
+            str = str + i.toString();
+        }
+        console.log(str);
     }
 }
 
