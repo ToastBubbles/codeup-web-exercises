@@ -15,10 +15,7 @@
     let person = {
         firstName: "Rick",
         lastName: "Sanchez",
-        sayHello(){
 
-            console.log(`hello, ${this.firstName} ${this.lastName}`)
-        }
     }
         console.log(person.firstName) // "Rick"
         console.log(person.lastName) // "Sanchez"
@@ -32,6 +29,13 @@
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
+
+    person.sayHello = function (){
+
+
+            return (`hello, ${this.firstName} ${this.lastName}`)
+
+    }
     console.log(person.sayHello())
 
 

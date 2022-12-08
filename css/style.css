@@ -20,7 +20,28 @@ button{
 }
 
 body{
+    font-family: "Comic Sans MS";
+    font-weight: bold;
     background: beige;
+}
+
+@keyframes slide {
+    0% {color: red; margin-left: 0px;}
+    50% {color: greenyellow;  font-size: 100px; margin-left: 100px;}
+    100% {color: red;  transform: rotate(360deg); margin-left: 0px;}
+
+
+}
+h2{
+    /*text-align: center;*/
+    margin-top: 200px;
+    padding-bottom: 20px;
+    /*border-bottom: dotted #447 4px;*/
+    color: red;
+    animation-name: slide;
+    animation-duration: 500ms;
+    animation-iteration-count: infinite;
+
 }
 
 .center{
