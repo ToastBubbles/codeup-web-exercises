@@ -1,0 +1,44 @@
+body {
+  margin: 0px;
+  background-color: #eee;
+}
+
+ul {
+  display: inline-block;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ddd;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.navbar {
+  background-color: #333;
+}
+
+.small-img {
+  height: 30px;
+  padding: 10px;
+}
+.codeup-img {
+  vertical-align: middle;
+  height: 30px;
+
+  margin-left: 10px;
+  margin-top: 20px;
+}
+.org {
+  display: inline;
+}
