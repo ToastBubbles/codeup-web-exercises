@@ -1,0 +1,131 @@
+/* .myClass {
+  height: 100px;
+  width: 100%;
+  background-color: yellow;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+} */
+
+/* h1.myClass {
+  color: red;
+}
+.myClass {
+  background-color: blue;
+} */
+
+* {
+  color: grey;
+}
+
+/* will be grey */
+
+h1 {
+  color: green;
+}
+
+h1 {
+  color: red;
+}
+/* Will be Green */
+
+.myClass {
+  color: blue;
+}
+
+h1 {
+  color: red;
+}
+
+/*Color will be Blue*/
+
+.myClass {
+  color: blue;
+}
+.myClass {
+  color: red;
+}
+
+/* will be red */
+
+.myClass.myClass.myClass {
+  color: rosybrown;
+}
+
+.myClass.myClass {
+  color: teal;
+}
+
+/* will be brown */
+
+#hone {
+  color: orange;
+}
+.myClass,
+.myClass2 {
+  color: purple;
+}
+
+/* will be orange */
+
+h1 {
+  color: pink !important;
+}
+
+/* will be pink */
+.myClass {
+  background-color: red !important;
+}
+.myClass {
+  background-color: blue !important;
+}
+
+/* 
+
+left to right top to bottom,
+
+
+
+
+
+
+Priority:
+
+-!important
+-inline
+-ID
+-Class
+-Element
+-*
+
+
+
+
+reassignment will be last prop applied
+
+
+
+Weight colomn
+
+ID-CLASS-TYPE
+
+* All elements
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
