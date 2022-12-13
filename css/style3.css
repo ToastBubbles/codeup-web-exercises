@@ -33,7 +33,6 @@ li {
   color: #ddd;
   text-align: center;
   padding: 14px 16px;
-  text-decoration: none;
 }
 /* ------------------ HEADER --------------------- */
 
@@ -57,6 +56,7 @@ li {
   color: black !important;
   /* font-weight: bold; */
 }
+
 .tab-li a {
   display: block;
   font-size: 15px;
@@ -69,7 +69,7 @@ li {
 
 .tab-body {
   margin: -4px;
-
+  padding-top: 40px;
   background-color: white;
   height: 100vh;
   width: 100%;
@@ -85,4 +85,54 @@ li {
   font-size: 12px;
   color: #222;
   background-color: #ddd;
+}
+
+table {
+  margin-left: 50px;
+  width: 90%;
+  background-color: #eee;
+  border: 1px solid;
+  border-color: #ccc;
+  border-collapse: collapse;
+}
+th {
+  background-color: #eee;
+  color: #111;
+  text-align: left;
+  padding: 10px 0px 20px 40px;
+}
+tr {
+  color: #666;
+  background-color: white;
+  position: relative;
+  width: auto !important;
+  height: 21px;
+  border: 1px solid;
+  border-color: #ccc;
+  padding-left: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+td div {
+  padding-top: 5px;
+  font-size: 13px;
+}
+a {
+  text-decoration: none;
+}
+
+.avatar-img {
+  height: 40px;
+  padding: 5px 10px 5px 40px;
+}
+.name-col {
+  width: auto;
+}
+.col {
+  width: 100px;
+}
+.r-col {
+  text-align: right;
+  padding-right: 20px;
+  width: 100px;
 }
