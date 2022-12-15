@@ -90,20 +90,23 @@ a {
 .profile-details {
   margin: 0 0.5em;
   padding-top: 20px;
-  float: left;
+  position: absolute;
   width: calc(25% - 1em);
 }
 .timeline {
   margin: 0 0.5em;
-  float: left;
+  position: absolute;
+  left: 25%;
   width: calc(50% - 1em);
 }
 .who-to-follow {
   margin: 0 0.5em;
-  float: left;
+  position: absolute;
+  left: 75%;
   width: calc(25% - 1em);
 }
 .container {
+  position: relative;
   margin-top: 2em;
 }
 
