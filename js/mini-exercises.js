@@ -185,3 +185,43 @@ console.log(returnPetsWithNoFish(pets));
 //     age: 3,
 //   })
 // ];
+
+const petsLong = [
+  {
+    name: "Sparky",
+    type: "Fish",
+    age: 4,
+  },
+  {
+    name: "Mr. Pig",
+    type: "Cat",
+    age: 4,
+  },
+  {
+    name: "Bubba",
+    type: "Dog",
+    age: 5,
+  },
+  {
+    name: "Beans",
+    type: "Dog",
+    age: 3,
+  },
+  {
+    name: "Mr. Salmon",
+    type: "Fish",
+    age: 1,
+  },
+];
+
+function returnLongestPetName(petArr) {
+  let str = "";
+  petArr.forEach((pet) => {
+    if (pet.name.length > str.length) {
+      str = pet.name;
+    }
+  });
+  return str;
+}
+
+console.log(returnLongestPetName(petsLong)); // returns 'Mr. Salmon'
