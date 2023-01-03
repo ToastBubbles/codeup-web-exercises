@@ -14,6 +14,7 @@
     <title>Pizza Time</title>
   </head>
   <body>
+    <div class="bckgrnd-img"></div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <img
@@ -114,12 +115,13 @@
     </nav>
 
     <div class="container">
-      <div class="jumbotron">
+      <div class="faux-jumbotron">
         <div class="opacity-header">Welcome to PIZZA TIME!!1!</div>
       </div>
+      <div class="jumbotron"></div>
 
       <h2>Build your own pizza.</h2>
-      <ul class="nav nav-tabs">
+      <!-- <ul class="nav nav-tabs">
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="#"
             ><span class="badge rounded-pill bg-secondary">1</span>Size &
@@ -138,16 +140,62 @@
             ><span class="badge rounded-pill bg-secondary">3</span>Toppings</a
           >
         </li>
+      </ul> -->
+      <!-- ********************************************* TABS ********************************************* -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+          <a
+            class="nav-link active"
+            id="size-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#size"
+            type="button"
+            role="tab"
+            aria-controls="size"
+            aria-selected="true"
+            ><span class="badge rounded-pill bg-secondary">1</span>Size &
+            Crust</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            id="cheese-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#cheese"
+            type="button"
+            role="tab"
+            aria-controls="cheese"
+            aria-selected="false"
+            ><span class="badge rounded-pill bg-secondary">2</span>Cheese &
+            Sauce</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            id="toppings-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#toppings"
+            type="button"
+            role="tab"
+            aria-controls="toppings"
+            aria-selected="false"
+            ><span class="badge rounded-pill bg-secondary">3</span>Toppings</a
+          >
+        </li>
       </ul>
-      <div class="card">
+      <!-- ********************************************* BODY ********************************************* -->
+      <div class="card tab-content">
         <div class="card-header">Choose Size and Crust</div>
-        <div class="card-body">
-          <!-- <h5 class="card-title">Special title treatment</h5>
-          <p class="card-text">
-            With supporting text below as a natural lead-in to additional
-            content.
-          </p>
-          <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        <!-- ********************************************* CARD1 ********************************************* -->
+        <div
+          class="card-body tab-pane fade show active"
+          id="size"
+          role="tabpanel"
+          aria-labelledby="size-tab"
+        >
           <div class="card" style="width: 18rem; margin-bottom: 1em">
             <div class="card-header">Size</div>
             <ul class="list-group list-group-flush">
@@ -206,22 +254,16 @@
               </li>
             </ul>
           </div>
-          <div class="card" style="width: 18rem">
+
+          <div
+            class="card fade show active"
+            style="width: 18rem"
+            id="size"
+            role="tabpanel"
+            aria-labelledby="size-tab"
+          >
             <div class="card-header">Crust</div>
-            <!-- <ul class="list-group list-group-flush">
-              <li class="list-group-item">Traditional Tomato</li>
-              <li class="list-group-item">BBQ</li>
-              <li class="list-group-item">Toothpaste</li>
-              <li class="list-group-item">Chef's Surprise</li>
-              <li class="list-group-item">None</li>
-            </ul> -->
-            <!-- <ul class="list-group list-group-flush">
-              <li class="list-group-item">Traditional</li>
-              <li class="list-group-item">Stuffed</li>
-              <li class="list-group-item">Raw Chicken Crumbs</li>
-              <li class="list-group-item">Extra Krusty™</li>
-              <li class="list-group-item">None</li>
-            </ul> -->
+
             <ul class="list-group list-group-flush">
               <li class="list-group-item">
                 <div class="form-check">
@@ -292,8 +334,268 @@
             </ul>
           </div>
         </div>
+        <!-- <button type="button" class="btn btn-primary btn-proceed">
+          Next Step >>
+        </button> -->
+        <!-- ********************************************* CARD2 ********************************************* -->
+        <div
+          class="card-body tab-pane fade"
+          id="cheese"
+          role="tabpanel"
+          aria-labelledby="cheese-tab"
+        >
+          <div class="card" style="width: 18rem; margin-bottom: 1em">
+            <div class="card-header">Cheese</div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="pizzaCheese"
+                    id="pizzaCheese1"
+                    checked
+                  />
+                  <label class="form-check-label" for="pizzaCheese1"
+                    >Mozzerella
+                  </label>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="pizzaCheese"
+                    id="pizzaCheese2"
+                  />
+                  <label class="form-check-label" for="pizzaCheese2">
+                    Cheddar
+                  </label>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="pizzaCheese"
+                    id="pizzaCheese3"
+                  />
+                  <label class="form-check-label" for="pizzaCheese3">
+                    Yes
+                  </label>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="pizzaCheese"
+                    id="pizzaCheese4"
+                  />
+                  <label class="form-check-label" for="pizzaCheese4">
+                    None
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div
+            class="card fade show active"
+            style="width: 18rem"
+            id="size"
+            role="tabpanel"
+            aria-labelledby="size-tab"
+          >
+            <div class="card-header">Sauce</div>
+
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="pizzaSauceForm"
+                    id="pizzaSauceForm1"
+                    checked
+                  />
+                  <label class="form-check-label" for="pizzaSauceForm1"
+                    >Traditional Tomato
+                  </label>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="pizzaSauceForm"
+                    id="pizzaSauceForm2"
+                  />
+                  <label class="form-check-label" for="pizzaSauceForm2">
+                    BBQ
+                  </label>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="pizzaSauceForm"
+                    id="pizzaSauceForm3"
+                  />
+                  <label class="form-check-label" for="pizzaSauceForm3">
+                    Toothpaste
+                  </label>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="pizzaSauceForm"
+                    id="pizzaSauceForm4"
+                  />
+                  <label class="form-check-label" for="pizzaSauceForm4">
+                    Chef's Surprise
+                  </label>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="pizzaSauceForm"
+                    id="pizzaSauceForm5"
+                  />
+                  <label class="form-check-label" for="pizzaSauceForm5">
+                    None
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- ********************************************* CARD3 ********************************************* -->
+        <div
+          class="card-body tab-pane fade"
+          id="toppings"
+          role="tabpanel"
+          aria-labelledby="toppings-tab"
+        >
+          <div class="card" style="width: 18rem; margin-bottom: 1em">
+            <div class="card-header">Toppings</div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="pizzaTopping"
+                    id="pizzaTopping1"
+                    checked
+                  />
+                  <label class="form-check-label" for="pizzaTopping1"
+                    >Pepporoni
+                  </label>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="pizzaTopping"
+                    id="pizzaTopping2"
+                  />
+                  <label class="form-check-label" for="pizzaTopping2">
+                    Pineapple
+                  </label>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="pizzaTopping"
+                    id="pizzaTopping3"
+                  />
+                  <label class="form-check-label" for="pizzaTopping3">
+                    Bacon
+                  </label>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="pizzaTopping"
+                    id="pizzaTopping4"
+                  />
+                  <label class="form-check-label" for="pizzaTopping4">
+                    Crumbs
+                  </label>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="pizzaTopping"
+                    id="pizzaTopping5"
+                  />
+                  <label class="form-check-label" for="pizzaTopping5">
+                    Microplastic
+                  </label>
+                </div>
+              </li>
+              <li class="list-group-item">
+                <div class="form-check">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="pizzaTopping"
+                    id="pizzaTopping6"
+                  />
+                  <label class="form-check-label" for="pizzaTopping6">
+                    None
+                  </label>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <button type="button" class="btn btn-primary btn-proceed">
+          Next Step >>
+        </button>
       </div>
+
+      <!-- <div class="card-header fade">Choose Cheese and Sauce</div> -->
     </div>
+
+    <!-- <ul class="list-group list-group-flush">
+              <li class="list-group-item">Traditional Tomato</li>
+              <li class="list-group-item">BBQ</li>
+              <li class="list-group-item">Toothpaste</li>
+              <li class="list-group-item">Chef's Surprise</li>
+              <li class="list-group-item">None</li>
+            </ul> -->
+    <!-- <ul class="list-group list-group-flush">
+              <li class="list-group-item">Traditional</li>
+              <li class="list-group-item">Stuffed</li>
+              <li class="list-group-item">Raw Chicken Crumbs</li>
+              <li class="list-group-item">Extra Krusty™</li>
+              <li class="list-group-item">None</li>
+            </ul> -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

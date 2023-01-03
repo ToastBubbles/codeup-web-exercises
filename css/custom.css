@@ -1,16 +1,81 @@
+body {
+  overflow-x: hidden;
+}
+.bckgrnd-img {
+  position: absolute;
+  background-image: url("../img/scary-pizza.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  width: 200%;
+  height: 370%;
+  left: -65vw;
+  top: -18vh;
+  /* overflow: hidden; */
+  opacity: 100%;
+}
+* {
+  opacity: 95%;
+  color: aliceblue;
+  /* background-color: black; */
+}
 .jumbotron {
   display: flex;
+  filter: blur(10px);
   background-image: url("../img/pizza.png");
   height: 346px;
   background-size: cover;
 }
+.faux-jumbotron {
+  z-index: 20;
+  position: absolute;
+  display: flex;
+  /* filter: blur(4px); */
+  /* background-image: url("../img/pizza.png"); */
+  height: 346px;
+  width: 1296px;
+  background-size: cover;
+}
 
 .opacity-header {
+  filter: sepia(1);
   font-size: 2em;
   display: block;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.624);
+  /* color: #333; */
+  background-color: rgba(64, 64, 64, 0.624);
   padding: 2em auto;
   margin: auto;
   text-align: center;
+}
+.btn-proceed {
+  width: auto;
+
+  margin: 0 2em 2em auto;
+}
+/* overrides */
+.card-header {
+  background-color: rgba(12, 12, 12, 1);
+}
+.nav-link.active {
+  background-color: rgba(12, 12, 12, 1) !important;
+}
+
+.list-group-item {
+  background-color: rgba(47, 47, 47, 1);
+}
+.card {
+  background-color: rgba(47, 47, 47, 1);
+}
+
+.bg-light {
+  background-color: rgba(47, 47, 47, 1) !important;
+  color: aliceblue !important;
+}
+.navbar-brand {
+  color: aliceblue !important;
+}
+
+.nav-link {
+  color: aliceblue !important;
 }
