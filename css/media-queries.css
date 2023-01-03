@@ -1,6 +1,6 @@
 @media screen and (min-width: 576px) and (max-width: 1600px) {
   body {
-    margin: auto;
+    margin: auto 2em;
     display: flex;
     flex-direction: column;
 
@@ -14,7 +14,7 @@
     text-align: center;
 
     margin-top: 1em;
-    width: 95%;
+    width: 100%;
     background-color: lightblue;
     border: solid lightgrey 2px;
 
@@ -28,9 +28,13 @@
     font-size: 15vh;
     margin: auto;
   }
+  nav {
+    width: 100%;
+  }
   ul {
     display: block;
-    margin: 0;
+    margin: 3vh 0 0 0;
+    padding: 0;
   }
   li {
     list-style: none;
@@ -38,6 +42,18 @@
     padding: 4vh 0;
     margin: 2vh auto;
     text-align: center;
-    width: 90vw;
+  }
+  .header-img {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+  }
+  .header-img img {
+    width: 100%;
+    height: auto;
+  }
+  footer {
+    margin-right: auto;
   }
 }
