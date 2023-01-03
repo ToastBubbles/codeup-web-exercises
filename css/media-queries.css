@@ -1,4 +1,4 @@
-@media screen and (min-width: 576px) and (max-width: 1200px) {
+@media screen and (min-width: 200px) and (max-width: 700px) {
   body {
     margin: auto 2em;
     display: flex;
@@ -58,7 +58,7 @@
   }
 }
 
-@media screen and (min-width: 1201px) and (max-width: 3000px) {
+@media screen and (min-width: 701px) and (max-width: 3000px) {
   body {
     display: flex;
     flex-wrap: wrap;
