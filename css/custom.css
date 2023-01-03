@@ -19,35 +19,38 @@ body {
   color: aliceblue;
   /* background-color: black; */
 }
-.jumbotron {
-  display: flex;
-  filter: blur(10px);
-  background-image: url("../img/pizza.png");
-  height: 346px;
-  background-size: cover;
-}
-.faux-jumbotron {
-  z-index: 20;
-  position: absolute;
-  display: flex;
-  /* filter: blur(4px); */
-  /* background-image: url("../img/pizza.png"); */
-  height: 346px;
-  width: 1296px;
-  background-size: cover;
+@media screen and (min-width: 700px) {
+  .jumbotron {
+    display: flex;
+    filter: blur(10px);
+    background-image: url("../img/pizza.png");
+    height: 346px;
+    background-size: cover;
+  }
+  .faux-jumbotron {
+    z-index: 2;
+    position: absolute;
+    display: flex;
+    /* filter: blur(4px); */
+    /* background-image: url("../img/pizza.png"); */
+    height: 346px;
+    width: 1296px;
+    background-size: cover;
+  }
+
+  .opacity-header {
+    filter: sepia(1);
+    font-size: 2em;
+    display: block;
+    width: 100%;
+    /* color: #333; */
+    background-color: rgba(64, 64, 64, 0.624);
+    padding: 2em auto;
+    margin: auto;
+    text-align: center;
+  }
 }
 
-.opacity-header {
-  filter: sepia(1);
-  font-size: 2em;
-  display: block;
-  width: 100%;
-  /* color: #333; */
-  background-color: rgba(64, 64, 64, 0.624);
-  padding: 2em auto;
-  margin: auto;
-  text-align: center;
-}
 .btn-proceed {
   width: auto;
 
@@ -81,4 +84,9 @@ body {
 }
 .tab-content {
   height: 40em;
+}
+
+.navbar {
+  /* position: absolute; */
+  z-index: 21;
 }
