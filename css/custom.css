@@ -79,3 +79,6 @@ body {
 .nav-link {
   color: aliceblue !important;
 }
+.tab-content {
+  height: 40em;
+}
