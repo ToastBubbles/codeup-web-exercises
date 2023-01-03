@@ -225,3 +225,16 @@ function returnLongestPetName(petArr) {
 }
 
 console.log(returnLongestPetName(petsLong)); // returns 'Mr. Salmon'
+console.log("**************************************");
+
+//Write a function, iBeforeE that takes in a string and returns the string with any ‘ei’ characters replaced with ‘ie’.
+
+function iBeforeE(str) {
+  console.log(str.replaceAll("ei", "ie"));
+}
+
+iBeforeE("ei"); // returns 'ie'
+iBeforeE("height"); // returns 'hieght'
+iBeforeE("heist"); // returns 'hiest'
+iBeforeE("their"); // returns 'thier'
+iBeforeE("theirtheir"); // returns ‘thierthier'
