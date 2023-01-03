@@ -1,0 +1,16 @@
+.jumbotron {
+  display: flex;
+  background-image: url("../img/pizza.png");
+  height: 346px;
+  background-size: cover;
+}
+
+.opacity-header {
+  font-size: 2em;
+  display: block;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.624);
+  padding: 2em auto;
+  margin: auto;
+  text-align: center;
+}
