@@ -242,9 +242,9 @@ iBeforeE("theirtheir"); // returns ‘thierthier'
 console.log("******************* Jan 9 *******************");
 
 function zipArrays(arr1, arr2) {
-  let longestLength = 0;
+  let longestLength = arr1.length;
   let tempArr = [];
-  longestLength = arr1.length;
+
   if (arr2.length > longestLength) {
     longestLength = arr2.length;
   }
@@ -271,6 +271,8 @@ zipArrays([1, 2, 3, 4], [2]); // returns [1, 2]
 zipArrays([1, 2, 3, 4, 5], ["a", "b", "c"]); // returns [1, 2]
 
 zipArrays([1, 2, 3], ["a", "b", "c", "d", "e"]); // returns [1, 2]
+zipArrays([1, 2, 3], []); // returns [1, 2]
+zipArrays([], ["a", "b", "c", "d", "e"]); // returns [1, 2]
 // [
 //   1,
 //   'bob',
