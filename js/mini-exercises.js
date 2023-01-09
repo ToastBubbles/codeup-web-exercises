@@ -238,3 +238,5 @@ iBeforeE("height"); // returns 'hieght'
 iBeforeE("heist"); // returns 'hiest'
 iBeforeE("their"); // returns 'thier'
 iBeforeE("theirtheir"); // returns ‘thierthier'
+
+console.log("******************* Jan 9 *******************");
