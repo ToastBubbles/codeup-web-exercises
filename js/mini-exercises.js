@@ -242,14 +242,21 @@ iBeforeE("theirtheir"); // returns ‘thierthier'
 console.log("******************* Jan 9 *******************");
 
 function zipArrays(arr1, arr2) {
+  let longestLength = 0;
   let tempArr = [];
-  if (arr1.length === arr2.length) {
-    for (let i = 0; i < arr1.length; i++) {
+  longestLength = arr1.length;
+  if (arr2.length > longestLength) {
+    longestLength = arr2.length;
+  }
+  for (let i = 0; i < longestLength; i++) {
+    if (i < arr1.length) {
       tempArr.push(arr1[i]);
+    }
+    if (i < arr2.length) {
       tempArr.push(arr2[i]);
     }
-    console.log(tempArr);
   }
+  console.log(tempArr);
 }
 
 // Create a function, zipArrays, that takes two array inputs of the same length and returns an array with the elements of both arrays alternating in the order of first[0], second[0], first[1], second[1], etc. If both arrays are empty, return an empty array.
@@ -259,6 +266,11 @@ zipArrays([1], [2]); // returns [1, 2]
 zipArrays(["a", "b"], ["c", "d"]); // returns... ['a', 'c', 'b', 'd']
 zipArrays([1, 2, "a", "b"], ["bob", null, "sally", 25]); // returns...
 
+zipArrays([1, 2, 3, 4], [2]); // returns [1, 2]
+
+zipArrays([1, 2, 3, 4, 5], ["a", "b", "c"]); // returns [1, 2]
+
+zipArrays([1, 2, 3], ["a", "b", "c", "d", "e"]); // returns [1, 2]
 // [
 //   1,
 //   'bob',
