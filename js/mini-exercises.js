@@ -57,32 +57,32 @@ beverages.bev5 = {
 console.log(beverages.bev5);
 
 // -- Mini Exercise 2
-const users = [
-  {
-    givenName: "Sam",
-    age: 21,
-  },
-  {
-    givenName: "Cathy",
-    age: 34,
-  },
-  {
-    givenName: "Kathy",
-    age: 43,
-  },
-];
+// const users = [
+//   {
+//     givenName: "Sam",
+//     age: 21,
+//   },
+//   {
+//     givenName: "Cathy",
+//     age: 34,
+//   },
+//   {
+//     givenName: "Kathy",
+//     age: 43,
+//   },
+// ];
 
-let concatStr = "";
-users.forEach(function (user) {
-  console.log(user.givenName);
-  user.givenName = "John Doe";
-  concatStr += ` ${user.givenName}`;
-  console.log(user.givenName);
-  console.log(user.age);
-  user.age += 1;
-  console.log(user.age);
-});
-console.log(concatStr.slice(1));
+// let concatStr = "";
+// users.forEach(function (user) {
+//   console.log(user.givenName);
+//   user.givenName = "John Doe";
+//   concatStr += ` ${user.givenName}`;
+//   console.log(user.givenName);
+//   console.log(user.age);
+//   user.age += 1;
+//   console.log(user.age);
+// });
+// console.log(concatStr.slice(1));
 // 0. Log each given name
 // 1. Log the names of all users in a single console log separated by spaces. // output = “Sam Cathy Karen”
 // 2. Change the names of all users to “John Doe”
@@ -283,3 +283,58 @@ zipArrays([], ["a", "b", "c", "d", "e"]); // returns [1, 2]
 //   'b',
 //   25
 // ]
+
+//================================= WARM UP
+
+//Write a function, getUserCredentials, that takes in a list of user objects and returns a list of user objects with only the username and password properties. Assume at least an array of one user object.
+console.log("******************* Jan 10 *******************");
+const users = [
+  {
+    firstName: "Justin",
+    lastName: "Reich",
+    dob: "1923-01-01",
+    username: "jreich",
+    password: "$2y$10$UJlsa5vWq5DUKJjyO38gM.dCZfudWOFCrLWQosh0mhXKaZmRmvDse",
+  },
+  {
+    firstName: "Sally",
+    lastName: "Smith",
+    dob: "1935-03-11",
+    username: "ssmith",
+    password: "$2y$10$VaLGU5.7uQLr.eg6kSI9seOcP4JY4XktWt28I9JgblAGIDpkDXbya",
+  },
+  {
+    firstName: "Fred",
+    lastName: "Smith",
+    dob: "1999-01-21",
+    username: "fsmith",
+    password: "$2y$10$3USt6Dl8TNMkeh0KioPnfeVpynAotXvSIJ5xrzAHragPEAWMYEBNS",
+  },
+];
+function getUserCredentials(userdb) {
+  let creds = [];
+  userdb.forEach((user) => {
+    creds.push({ username: user.username, password: user.password });
+  });
+  return creds;
+}
+console.log(getUserCredentials(users)); // returns...
+
+/*
+
+[
+  {
+    username: 'jreich',
+    password: '$2y$10$UJlsa5vWq5DUKJjyO38gM.dCZfudWOFCrLWQosh0mhXKaZmRmvDse'
+  },
+  {
+    username: 'ssmith',
+    password: '$2y$10$VaLGU5.7uQLr.eg6kSI9seOcP4JY4XktWt28I9JgblAGIDpkDXbya'
+  },
+  {
+    username: 'fsmith',
+    password: '$2y$10$3USt6Dl8TNMkeh0KioPnfeVpynAotXvSIJ5xrzAHragPEAWMYEBNS'
+  }
+]
+
+*/

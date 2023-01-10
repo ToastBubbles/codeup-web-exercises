@@ -40,15 +40,26 @@
         subHeader.setAttribute("style", "color: blue");
 
         // TODO: Uncomment the next line and get all list items
-        var listItems = ;
+        var listItems = document.querySelectorAll("li");
+        console.log(listItems);
 
         // TODO: Set text color on every other list item to grey
+        for (let i = 0; i < listItems.length; i++) {
+          if ((i - 1) % 2 === 0) {
+            listItems[i].setAttribute("style", "color: grey");
+          }
+          if (listItems[i].getAttribute("data-dbid") == "1") {
+            listItems[i].setAttribute("style", "color: blue");
+          }
+        }
+
         // TODO: Set text color of li with dbid = 1 to blue
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-        // var subParagraphs = ;
+        var subParagraphs = document.querySelectorAll(".sub-paragraph");
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
+        subParagraphs[0].innerHTML = "Mission Accomplished";
       })();
     </script>
   </body>
