@@ -31,27 +31,17 @@
         var mainHeader = document.getElementById("main-header");
 
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        mainHeader.innerHTML = "JavaScript is Cool";
 
         // TODO: Uncomment the next line and get the sub header element by id
         let subHeader = document.getElementById("sub-header");
 
         // TODO: Set the text color of subHeader to blue
-        subHeader.setAttribute("style", "color: blue");
 
         // TODO: Uncomment the next line and get all list items
         var listItems = document.querySelectorAll("li");
         console.log(listItems);
 
         // TODO: Set text color on every other list item to grey
-        for (let i = 0; i < listItems.length; i++) {
-          if ((i - 1) % 2 === 0) {
-            listItems[i].setAttribute("style", "color: grey");
-          }
-          if (listItems[i].getAttribute("data-dbid") == "1") {
-            listItems[i].setAttribute("style", "color: blue");
-          }
-        }
 
         // TODO: Set text color of li with dbid = 1 to blue
 
@@ -59,7 +49,46 @@
         var subParagraphs = document.querySelectorAll(".sub-paragraph");
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-        subParagraphs[0].innerHTML = "Mission Accomplished";
+
+        // Add 4 buttons to the page. Attach click event listeners to each of the buttons and have the handlers perform the
+        //modifications that were automatically taking place. For example, the first button should set inner html of mainHeader to "JavaScript is Cool".
+        // View the results in your browser to test for the expected output.
+        // Finally, save your work, commit the changes to your git repository, and push to GitHub.
+        let btn1 = document.createElement("button");
+        btn1.innerHTML = "button 1";
+        btn1.setAttribute("id", "btn1");
+        btn1.addEventListener("click", () => {
+          mainHeader.innerHTML = "JavaScript is Cool";
+        });
+        let btn2 = document.createElement("button");
+        btn2.innerHTML = "button 2";
+        btn2.setAttribute("id", "btn2");
+        btn2.addEventListener("click", () => {
+          subHeader.setAttribute("style", "color: blue");
+        });
+        let btn3 = document.createElement("button");
+        btn3.innerHTML = "button 3";
+        btn3.setAttribute("id", "btn3");
+        btn3.addEventListener("click", () => {
+          for (let i = 0; i < listItems.length; i++) {
+            if ((i - 1) % 2 === 0) {
+              listItems[i].setAttribute("style", "color: grey");
+            }
+            if (listItems[i].getAttribute("data-dbid") == "1") {
+              listItems[i].setAttribute("style", "color: blue");
+            }
+          }
+        });
+        let btn4 = document.createElement("button");
+        btn4.innerHTML = "button4";
+        btn4.setAttribute("id", "btn4");
+        btn4.addEventListener("click", () => {
+          subParagraphs[0].innerHTML = "Mission Accomplished";
+        });
+        document.body.append(btn1);
+        document.body.append(btn2);
+        document.body.append(btn3);
+        document.body.append(btn4);
       })();
     </script>
   </body>
