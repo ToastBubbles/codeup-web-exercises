@@ -338,3 +338,8 @@ console.log(getUserCredentials(users)); // returns...
 ]
 
 */
+
+console.log("******************* Short circuits *******************");
+let bool = false;
+
+console.log("" && "bool is true");
