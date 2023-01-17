@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Konami Code</title>
+  </head>
+  <body>
+    <h1>Konami Code</h1>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+      "use strict";
+      let codeVal = 0;
+      $(document).keyup(function (e) {
+        let k = e.keyCode;
+
+        //if (e.keyCode == 38 && codeVal == 0)
+        if (
+          (k == 38 && (codeVal == 0 || codeVal == 1)) || //up
+          (k == 40 && (codeVal == 2 || codeVal == 3)) || //down
+          (k == 37 && (codeVal == 4 || codeVal == 6)) || //left
+          (k == 39 && (codeVal == 5 || codeVal == 7)) || //right
+          (k == 66 && codeVal == 8) || //b
+          (k == 65 && codeVal == 9) || //a
+          (k == 13 && codeVal == 10)
+        ) {
+          //ret){
+          codeVal++;
+          if (codeVal == 11) {
+            console.log("gg");
+          }
+        } else {
+          resetCode();
+        }
+        console.log(k, codeVal);
+      });
+      function resetCode() {
+        console.log("resetting");
+        codeVal = 0;
+      }
+    </script>
+  </body>
+</html>
