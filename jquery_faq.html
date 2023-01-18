@@ -81,11 +81,59 @@
       </dd>
     </dl>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-    <script>
-      $(document).click(function () {
-        $("dd").toggleClass("invisible");
-      });
-    </script>
+    <h3>park 1</h3>
+    <ul>
+      <li>this one is awesome</li>
+      <li>it is hot</li>
+      <li>it is a park</li>
+      <li>it is</li>
+    </ul>
+
+      <h3>park 2</h3>
+      <ul>
+        <li>this one is not so nice</li>
+        <li>it is small</li>
+        <li>big shrimp will steal your food</li>
+        <li>dont go here</li>
+      </ul>
+
+
+      <h3>park 3</h3>
+      <ul>
+        <li>this one is ok</li>
+        <li>dont eat the sandwiches</li>
+        <li>the trees are here</li>
+        <li>grass</li>
+      </ul>
+
+
+      <button id="btn1">click me</button>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+      <script>
+        $(document).click(function () {
+          $("dd").toggleClass("invisible");
+        });
+
+        $("#btn1").click(function () {
+          $("ul li:last-child").css("background-color", "yellow");
+        });
+        $("h3").click(function (e) {
+            console.log('click')
+          //$("ul li:last-child").css("background-color", "yellow");.css("font-weight", "bold");
+        //   /$(this).children().css("background-color", "yellow");
+          $(this).next().children("li").css("background-color", "yellow");
+        });
+
+        $("li").click(function (e) {
+            console.log('click')
+          //$("ul li:last-child").css("background-color", "yellow");.css("font-weight", "bold");
+        //   /$(this).children().css("background-color", "yellow");
+          $(this).parent().children('li').first().css("color", "blue");
+        });
+
+        
+      </script>
+    </li>
   </body>
 </html>
