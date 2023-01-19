@@ -23,16 +23,16 @@
         "use strict";
         // TODO: Create an AJAX GET request for the file under data/inventory.json
         function getData() {
-          $.get("./data/inventory.json").done(function (data) {
+          $.get("./data/blog.json").done(function (data) {
             console.log(data);
             let html = "";
-            $("#insertProducts").html("");
+            // $("#posts").html("");
 
-            data.forEach((item) => {
-              html += `<tr><td>${item.title}</td><td>${item.quantity}</td><td>${item.price}</td><td>${item.categories}</td></tr>`;
+            data.forEach((blog) => {
+              html += `<div><h1>${blog.title}</h1><section>${blog.content}</section><p>${blog.categories}</p><p>${blog.date}</p></div>`;
             });
 
-            $("#insertProducts").append(html);
+            $("#posts").html(html);
           });
         }
 
