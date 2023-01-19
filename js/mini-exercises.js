@@ -227,7 +227,7 @@ function returnLongestPetName(petArr) {
 console.log(returnLongestPetName(petsLong)); // returns 'Mr. Salmon'
 console.log("**************************************");
 
-//Write a function, iBeforeE that takes in a string and returns the string with any ‘ei’ characters replaced with ‘ie’.
+//Write a function, iBeforeE that takes in a string and returns the string with any 'ei' characters replaced with 'ie'.
 
 function iBeforeE(str) {
   console.log(str.replaceAll("ei", "ie"));
@@ -237,7 +237,7 @@ iBeforeE("ei"); // returns 'ie'
 iBeforeE("height"); // returns 'hieght'
 iBeforeE("heist"); // returns 'hiest'
 iBeforeE("their"); // returns 'thier'
-iBeforeE("theirtheir"); // returns ‘thierthier'
+iBeforeE("theirtheir"); // returns 'thierthier'
 
 console.log("******************* Jan 9 *******************");
 
@@ -423,3 +423,112 @@ console.log(checkNeighborhood(neighborhood1)); // returns false due to school ra
 console.log(checkNeighborhood(neighborhood2)); // returns false due to crime rate
 console.log(checkNeighborhood(neighborhood3)); // returns true
 console.log(checkNeighborhood(neighborhood4)); // returns false due to median home price
+
+console.log("*********************** jan 19 *************************");
+
+// Create a function, encodeStr, that takes in a string and returns the string of characters with the following substitutions:
+//
+// 'a' or 'A' becomes '@'
+// 'i' or 'I' becomes '1'
+// 's' or 'S' becomes '$'
+//
+
+function encodeStr(str) {
+  let lowerStr = str.toLowerCase();
+  let chars = [
+    ["a", "@"],
+    ["i", "1"],
+    ["s", "$"],
+  ];
+
+  chars.forEach((pair) => {
+    lowerStr = lowerStr.replaceAll(pair[0], pair[1]);
+  });
+
+  return lowerStr;
+}
+console.log(encodeStr("apple")); // returns '@pple'
+console.log(encodeStr("codeup")); // returns 'codeup'
+console.log(encodeStr("SASS")); // returns '$@$$'
+console.log(encodeStr("bike")); // returns 'b1ke'
+
+console.log("*********************** jan19 ajax1 *************************");
+// $ajax(https://pokeapi.co/api/v2/pokemon/pikachu)
+$.get("https://pokeapi.co/api/v2/pokemon/pikachu").done(function (data) {
+  // console.log(data.name);
+});
+
+$.get("https://swapi.dev/api/films/1").done(function (data) {
+  // console.log(data.director);
+});
+let i = 1;
+
+$.get("https://pokeapi.co/api/v2/pokemon/").done(function (data) {
+  $.get(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=${data.count}`).done(
+    (data2) => {
+      data2.results.forEach((poke) => {
+        console.log(poke.name, i);
+        i++;
+      });
+    }
+  );
+  // let iterations = data.count / 20;
+
+  // console.log(iterations);
+  for (let k = 0; k <= data.count; k++) {
+    // console.log(data.count);
+    // if (k * 20 - 1 < data.count) {
+    // }
+  }
+
+  // for (let k = 0; k <= iterations; k++) {
+  //   // console.log(data.count);
+  //   // if (k * 20 - 1 < data.count) {
+  //   $.get(
+  //     `https://pokeapi.co/api/v2/pokemon/?offset=${k * 20 - 1}&limit=${
+  //       data.count
+  //     }`
+  //   ).done((data2) => {
+  //     data2.results.forEach((poke) => {
+  //       console.log(poke.name, i);
+  //       i++;
+  //     });
+  //   });
+  //   // }
+  // }
+
+  // if (i < data.count) {
+  //   $.get(data.next).done((data2) => {
+  //     data2.results.forEach((poke2) => {
+  //       // console.log(poke2.name, i);
+  //       i++;
+  //     });
+  //   });
+  //   // i += data.results.length;
+  // }
+  // data.results.forEach((poke) => {
+  //   // console.log(poke.name, i);
+  //   i++;
+  // });
+  console.log(data);
+});
+
+// !! MINI-EXERCISE 1 !!
+
+/*
+
+        1. Make a GET request using jQuery AJAX to the Pokemon API (https://pokeapi.co/api/v2/pokemon/pikachu) and print out the response
+        2. Try making some requests to the Star Wars API. Can you find the director of `A New Hope`?
+
+     */
+
+// ====================== EXPLORING JSON DATA
+
+// !! MINI-EXERCISE 2 !!
+
+/*
+
+        1. Print out various values from the orders.json file
+        2. Print various values from the Star Wars or Pokemon API
+
+     */
