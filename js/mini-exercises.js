@@ -532,3 +532,5 @@ $.get("https://pokeapi.co/api/v2/pokemon/").done(function (data) {
         2. Print various values from the Star Wars or Pokemon API
 
      */
+
+console.log("*********************** jan20*************************");
