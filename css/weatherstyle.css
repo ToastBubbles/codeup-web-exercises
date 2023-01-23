@@ -1,0 +1,121 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+}
+
+.wrapper {
+  display: flex;
+}
+.column {
+  display: inline-block;
+  width: 50%;
+}
+.hidden {
+  display: hidden;
+}
+.mainColumn {
+  padding: 3em;
+  /* display: flex; */
+  width: 100%;
+  aspect-ratio: 16/9;
+}
+.chart-container {
+  z-index: 10;
+  position: absolute;
+  display: inline-block;
+
+  width: 40%;
+  aspect-ratio: 5/6;
+  margin: auto;
+  padding: 1em;
+  background-color: #eee;
+  border-radius: 5%;
+  box-shadow: 10px 10px 12px -4px rgba(135, 135, 135, 0.48);
+  overflow: hidden;
+}
+
+.chartTimestamp {
+  transform: rotate(-60deg);
+}
+.chartTimestampContainer {
+  display: inline-block;
+  width: 7.68%;
+}
+#mainSVG {
+  width: 100%;
+  aspect-ratio: 16/9;
+  overflow: visible;
+}
+
+.chartText {
+  font-size: 0.3em;
+  text-shadow: rgb(255, 255, 255) 1px 0 5px;
+}
+.mapContainer {
+  right: 0;
+  display: inline-block;
+  position: absolute;
+  width: 40%;
+  /* height: 10%; */
+  aspect-ratio: 1/1;
+}
+.mapbgExtension {
+  position: absolute;
+  width: 100%;
+  aspect-ratio: 1/1;
+  background-color: #eee;
+  right: 50%;
+}
+.mapbg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  /* height: 100%; */
+  /* height: 30%; */
+  aspect-ratio: 1/1;
+  background-color: #eee;
+  border-radius: 0% 100% 100% 0%;
+  padding: 0%;
+  /* box-shadow: 10px 10px 12px -4px rgba(135, 135, 135, 0.48); */
+}
+.minimapmbg {
+  position: absolute;
+  width: 96%;
+  aspect-ratio: 1/1;
+  background-color: #2a2f34;
+  border-radius: 100% 100% 100% 15%;
+}
+#mapExpand {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 6%;
+  margin: 4%;
+  aspect-ratio: 1/1;
+  transform: rotate(90deg);
+}
+#map {
+  /* the width and height may be set to any size */
+  width: 92%;
+  aspect-ratio: 1/1;
+  /* height: 90%; */
+  /* margin: auto; */
+
+  /* height: 700px; */
+  border: solid #ddd 0.25em;
+  border-radius: 100%;
+}
+.geocoder {
+  position: absolute;
+  z-index: 1;
+  width: 50%;
+  left: 50%;
+  margin-left: -25%;
+  top: 10px;
+}
+.mapboxgl-ctrl-geocoder {
+  min-width: 100%;
+}

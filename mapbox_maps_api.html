@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>First Wataburger Map</title>
+    <!-- Mapbox CSS -->
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/mappage.css" />
+    <!-- Custom CSS -->
+    <style>
+      .wata {
+        width: 3em;
+
+        aspect-ratio: 1/1;
+        display: inline-block;
+      }
+      #map {
+        /* the width and height may be set to any size */
+        width: 100%;
+        height: 700px;
+      }
+      #searchLoc {
+        padding-left: 1em;
+        width: 80%;
+      }
+      .geocoder {
+        position: absolute;
+        z-index: 1;
+        width: 50%;
+        left: 50%;
+        margin-left: -25%;
+        top: 10px;
+      }
+      .mapboxgl-ctrl-geocoder {
+        min-width: 100%;
+      }
+    </style>
+    <script src="./js/keys.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>
+    <script
+      id="search-js"
+      defer
+      src="https://api.mapbox.com/search-js/v1.0.0-beta.14/web.js"
+    ></script>
+    <script>
+      const k = keys.mapbox;
+
+      const script = document.getElementById("search-js");
+      script.onload = function () {
+        mapboxsearch.autofill({
+          k,
+        });
+      };
+    </script>
+  </head>
+  <body>
+    <h1>My First Wataburger Map!</h1>
+
+    <!-- The HTML element that serves as the Mapbox container -->
+    <div class="page-wrapper">
+      <header class="container">
+        <div class="row full-width">
+          <img src="./img/wataburg.webp" class="wata" />
+          <!-- <input id="searchLoc" placeholder="Wataburger..." /> -->
+          <mapbox-search-box id="mapsearch" access-token="" proximity="0,0">
+          </mapbox-search-box>
+          <!-- <div class="column"></div> -->
+        </div>
+      </header>
+      <main class="container">
+        <div class="row full-width">
+          <aside class="column"></aside>
+          <div class="column">
+            <div id="map"></div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <!-- Custom JS -->
+
+    <!-- Mapbox JS -->
+
+    <script src="./js/mapbox-geocoder-utils.js"></script>
+
+    <script>
+      let myKey = keys.mapbox;
+      //   console.log(keys.mapbox);
+      mapboxgl.accessToken = myKey;
+      var map = new mapboxgl.Map({
+        container: "map",
+        style: "mapbox://styles/jeffneal11/cld4tjaah000c01o2ruyc3sq2",
+        zoom: 18,
+        pitch: 60,
+        center: [-98.4914, 29.4253],
+      });
+      document.getElementById("mapsearch").setAttribute("access-token", k);
+      var favResturants = [
+        {
+          address: "Whataburger, East Commerce Street, San Antonio, TX",
+          popupHTML:
+            "<p>Things to do at Wataburger</p><ol><li>Remember the Burger!</li><li>Remember the Burger!</li><li>Remember the Burger!</li><li>Hate on In and Outs</li></ol>",
+          coords: "",
+        },
+        {
+          address: "Whataburger, West Cypress Street, San Antonio, TX",
+          popupHTML: "<p>Remember the Burger!</p>",
+          coords: "",
+        },
+        {
+          address: "Whataburger, Broadway, San Antonio, TX",
+          popupHTML: "<p>Remember the Burger!</p>",
+          coords: "",
+        },
+      ];
+      let checkVal = 0;
+      let markerGroup = [];
+      favResturants.forEach((resturant) => {
+        geocode(resturant.address, myKey).then(function (coordinates) {
+          resturant.coords = coordinates;
+          placeMarkerAndPopup(resturant, myKey, resturant.coords, map);
+          checkVal++;
+          if (checkVal === 1) {
+            map.setCenter(coordinates); //set camera to first straunt
+          } else if (checkVal === favResturants.length - 1) {
+            console.log("done");
+
+            // var group = new L.featureGroup(markerGroup);
+            //map.fitBounds(group.getBounds());
+            console.log(markerGroup);
+            map.fitBounds(markerGroup, { padding: 100 });
+          }
+        });
+        //
+      });
+
+      function placeMarkerAndPopup(info, token, coordinate, map) {
+        var popup = new mapboxgl.Popup().setHTML(info.popupHTML);
+        var marker = new mapboxgl.Marker()
+          .setLngLat(coordinate)
+          .addTo(map)
+          .setPopup(popup);
+        markerGroup.push(coordinate);
+        //   popup.addTo(map);
+      }
+
+      //   const geocoder = new MapboxGeocoder({
+      //     accessToken: mapboxgl.accessToken,
+      //     mapboxgl: mapboxgl,
+      //   });
+
+      //   const search = new MapboxSearchBox();
+      //   search.accessToken = myKey;
+      //   map.addControl(search);
+      map.addControl(new mapboxgl.NavigationControl());
+      //   /document.getElementById("geocoder").appendChild(`<h1>hahds</h1>`); //geocoder.onAdd(map));
+      //marker.setPopup(alamoPopup);
+    </script>
+  </body>
+</html>

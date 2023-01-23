@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/weatherstyle.css" />
+    <title>Whether</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="mainColumn">
+        <div class="mapContainer">
+          <div class="mapbg">
+            <div class="mapbgExtension"></div>
+            <div class="minimapmbg">
+              <svg id="mapExpand" fill="#eee" viewBox="0 0 16 16">
+                <path
+                  fill-rule="evenodd"
+                  d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707zm4.344-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707z"
+                ></path>
+              </svg>
+            </div>
+            <div id="map"></div>
+          </div>
+        </div>
+        <div class="chart-container">
+          <svg id="mainSVG" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="Gradient" x1="0" x2="0" y1="0" y2="1">
+                <!-- <stop offset="0%" stop-color="#FD5900" />
+                  <stop offset="33%" stop-color="#FCAA01" />
+                  <stop offset="66%" stop-color="#79CADD" />
+                  <stop offset="100%" stop-color="cyan" /> -->
+                <!-- <stop offset="0%" stop-color="#49505c" /> -->
+                <stop offset="0%" stop-color="#181b1e" />
+                <stop offset="80%" stop-color="#49505c" />
+              </linearGradient>
+              <!-- <style>
+                <![CDATA[
+                        #rect1 { fill: url(#Gradient1); }
+                        .stop1 { stop-color: red; }
+                        .stop2 { stop-color: black; stop-opacity: 0; }
+                        .stop3 { stop-color: blue; }
+                      ]]>
+              </style> -->
+            </defs>
+            <path
+              d=""
+              id="path1"
+              fill="url(#Gradient)"
+              stroke="transparent"
+              stroke-width="0.5"
+              fill="none"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <div id="timeContainer"></div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/keys.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="./js/mapbox-geocoder-utils.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>
+    <script src="./js/weather.js"></script>
+  </body>
+</html>
