@@ -1,8 +1,12 @@
 * {
   box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+  color: #eee;
 }
 body {
   margin: 0;
+
+  background-color: #3d444e;
 }
 
 .wrapper {
@@ -30,18 +34,31 @@ body {
   aspect-ratio: 5/6;
   margin: auto;
   padding: 1em;
-  background-color: #eee;
+  background-color: #292e34;
   border-radius: 5%;
-  box-shadow: 10px 10px 12px -4px rgba(135, 135, 135, 0.48);
+  box-shadow: 10px 10px 12px -4px rgba(26, 26, 26, 0.48);
   overflow: hidden;
 }
-
+#timeContainer {
+  height: 4em;
+}
 .chartTimestamp {
+  width: 100%;
+  transform-origin: top right;
+  text-align: end;
+  direction: rtl;
   transform: rotate(-60deg);
 }
 .chartTimestampContainer {
   display: inline-block;
   width: 7.68%;
+}
+.chartTempText {
+  z-index: 11;
+  position: absolute;
+  top: 1em;
+  width: calc(100% - 2em);
+  aspect-ratio: 16/9;
 }
 #mainSVG {
   width: 100%;
@@ -50,11 +67,12 @@ body {
 }
 
 .chartText {
+  text-align: end;
   font-size: 0.3em;
   text-shadow: rgb(255, 255, 255) 1px 0 5px;
 }
 .mapContainer {
-  right: 0;
+  right: 3em;
   display: inline-block;
   position: absolute;
   width: 40%;
@@ -65,7 +83,7 @@ body {
   position: absolute;
   width: 100%;
   aspect-ratio: 1/1;
-  background-color: #eee;
+  background-color: #292e34;
   right: 50%;
 }
 .mapbg {
@@ -76,7 +94,7 @@ body {
   /* height: 100%; */
   /* height: 30%; */
   aspect-ratio: 1/1;
-  background-color: #eee;
+  background-color: #292e34;
   border-radius: 0% 100% 100% 0%;
   padding: 0%;
   /* box-shadow: 10px 10px 12px -4px rgba(135, 135, 135, 0.48); */
@@ -85,7 +103,7 @@ body {
   position: absolute;
   width: 96%;
   aspect-ratio: 1/1;
-  background-color: #2a2f34;
+  background-color: #181a1d;
   border-radius: 100% 100% 100% 15%;
 }
 #mapExpand {
@@ -95,6 +113,7 @@ body {
   width: 6%;
   margin: 4%;
   aspect-ratio: 1/1;
+
   transform: rotate(90deg);
 }
 #map {
