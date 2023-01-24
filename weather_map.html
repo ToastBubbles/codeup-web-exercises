@@ -15,12 +15,18 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/weatherstyle.css" />
+    <script src="./js/keys.js"></script>
+
     <title>Whether</title>
   </head>
   <body>
     <div class="wrapper">
       <div class="mainColumn">
         <div class="mapContainer">
+          <div class="searchContainer">
+            <input id="locSearch" type="text" placeholder="Wataburger..." />
+            <input id="searchButton" type="button" value="Search" />
+          </div>
           <section id="currentWeather"></section>
           <div class="mapbg">
             <div class="mapbgExtension"></div>
@@ -83,7 +89,7 @@
         </div>
       </div>
     </div>
-    <script src="./js/keys.js"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="./js/mapbox-geocoder-utils.js"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>
