@@ -23,6 +23,7 @@ function callWeather(pos) {
 let chartTimes = document.getElementById("timeContainer");
 let svgPath = document.getElementById("path1");
 let svgParent = document.getElementById("mainSVG");
+let chartbg = document.getElementById("chartbg");
 function updateCards(forecast3) {
   let lowTemp = 0;
   let highTemp = 0;
@@ -83,17 +84,24 @@ function calcPoint(temp, index, temps, high, low, type) {
         return `<text 
                 x="${Math.round((index / temps.length) * 100)}" 
                 y="${(100 - ((temp - low) / (high - low)) * 100).toFixed(2)}" 
-                fill="#222"
+                
              
                 class="chartText">${Math.round(temp)}°F</text>`;
       } else {
         return ``;
       }
+    } else if (index == temps.length - 1) {
+      return `<text 
+        x="${Math.round((index / temps.length) * 100) - 7}" 
+        y="${(100 - ((temp - low) / (high - low)) * 100).toFixed(2)}" 
+ 
+     
+        class="chartText">${Math.round(temp)}°F</text>`;
     } else {
       return `<text 
         x="${Math.round((index / temps.length) * 100)}" 
         y="${(100 - ((temp - low) / (high - low)) * 100).toFixed(2)}" 
-        fill="#222"
+    
      
         class="chartText">${Math.round(temp)}°F</text>`;
     }
@@ -106,8 +114,19 @@ function dateConversion(timestamp) {
   //dateString = dateString.substring(0, dateString.length - 6);
   dateString = dateString.replace(":00 ", "");
 
-  console.log(date.toLocaleTimeString("default"));
+  //   console.log(date.toLocaleTimeString("default"));
   return dateString;
+}
+let dayToggle = false;
+function generateChartbg(time) {
+  if (time === "12:00AM") {
+    console.log("its high noon");
+    dayToggle = !dayToggle;
+  }
+  if (dayToggle) {
+    return `<div class="chartCol-bg chartCol-bg1"></div>`;
+  }
+  return `<div class="chartCol-bg chartCol-bg2"></div>`;
 }
 
 function drawChart(temps, high, low) {
@@ -122,11 +141,11 @@ function drawChart(temps, high, low) {
   //   generateChartTimes(temps);
   temps.forEach((inc, index) => {
     alternator++;
+    let dt_str = dateConversion(inc.dt);
     if (alternator % 3 == 0) {
-      timestampString += `<div class='chartTimestampContainer'><div class="chartTimestamp">${dateConversion(
-        inc.dt
-      )}</div></div>`;
+      timestampString += `<div class='chartTimestampContainer'><div class="chartTimestamp">${dt_str}</div></div>`;
     }
+    chartbg.innerHTML += generateChartbg(dt_str);
     // console.log(index);
     // inc.main.temp;
     if (index === 0) {
@@ -152,6 +171,9 @@ function drawChart(temps, high, low) {
   svgParent.innerHTML += pointTextString;
   chartTimes.innerHTML += timestampString;
 }
+
+///////////////
+
 ///////////////////////////////////////////////
 if ("geolocation" in navigator) {
   navigator.geolocation.getCurrentPosition((position) => {
