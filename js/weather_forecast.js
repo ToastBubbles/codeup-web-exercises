@@ -2,6 +2,7 @@ let currentWeatherSection = document.getElementById("currentWeather");
 let forecast = document.getElementById("forecastContainer");
 // let cwImg = document.getElementById("currentWeatherIcon");
 function setCurrentWeatherInfo(data) {
+  currentWeatherSection.innerHTML = "";
   let wData = data.list[0];
   let weatherDataHTMLString = `<div><svg id="locationPin" fill="#eee" viewBox="0 0 16 16">
   <path
@@ -145,17 +146,10 @@ function generateForecastCards(data) {
         low = segment.main.temp;
       }
     }
-    // dailyTemps.push(segment.main.temp);
   });
   let numberOfCards = 4;
+  forecast.innerHTML = "";
   for (let i = 1; i <= numberOfCards; i++) {
-    // console.log("run");
     forecast.innerHTML += generateForecastHTML(cardDataObj, i);
   }
-
-  //   forecast.innerHTML += `<div class="forecastCard"></div>`;
-  //   forecast.innerHTML += `<div class="forecastCard"></div>`;
-  //   forecast.innerHTML += `<div class="forecastCard"></div>`;
-  //   forecast.innerHTML += `<div class="forecastCard"></div>`;
 }
-// generateForecastCards();

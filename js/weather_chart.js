@@ -1,5 +1,5 @@
 let chartTimes = document.getElementById("timeContainer");
-let svgPath = document.getElementById("path1");
+// let svgPath = document.getElementById("path1");
 let svgPathHum = document.getElementById("path2");
 let svgParent = document.getElementById("mainSVG");
 let chartbg = document.getElementById("chartbg");
@@ -118,6 +118,16 @@ function generateChartbg(time) {
 }
 
 function drawChart(temps, high, low) {
+  svgParent.innerHTML = `<path
+  d=""
+  id="path1"
+  stroke="#49505c"
+  stroke-width="0.5"
+  fill="none"
+  stroke-linejoin="round"
+/>`;
+  chartTimes.innerHTML = "";
+  chartbg.innerHTML = "";
   //   console.log(high, low);
   high *= 1.1;
   low *= 0.9;
@@ -167,9 +177,9 @@ function drawChart(temps, high, low) {
     );
   });
   pointString += ` L 100 100 L 0 100 Z`;
-  //   console.log(pointString);
+  console.log(pointString);
   svgPathHum.setAttribute("d", humPointString);
-  svgPath.setAttribute("d", pointString);
+  document.getElementById("path1").setAttribute("d", pointString);
   svgParent.innerHTML += pointTextString;
   chartTimes.innerHTML += timestampString;
 }

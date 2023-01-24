@@ -38,6 +38,8 @@ userSearchBtn.addEventListener("click", (e) => {
       //   placeMarkerAndPopup(resturant, myKey, resturant.coords, map);
       //   checkVal++;
       //   if (checkVal === 1) {
+      marker.setLngLat(coordinates);
+      callWeather(coordinates);
       flyToHere(coordinates);
       //map.setCenter(coordinates); //set camera to first straunt
       //   } else if (checkVal === favResturants.length - 1) {
@@ -68,11 +70,28 @@ if ("geolocation" in navigator) {
     flyToHere(coordinates);
     // map.setZoom(18);
     // map.setCenter(coordinates);
-
+    marker.setLngLat(coordinates).addTo(map);
     console.log(coordinates);
   });
 } else {
   console.log("No Live Location Data");
 }
+
+const marker = new mapboxgl.Marker({
+  draggable: true,
+});
+
+function onDragEnd() {
+  let lngLat = marker.getLngLat();
+
+  //   console.log([lngLat[0].toFixed(7), lngLat[1].toFixed(7)]);
+  //   callWeather([lngLat[0].toFixed(7), lngLat[1].toFixed(7)]);
+  console.log(lngLat);
+  callWeather([lngLat.lng, lngLat.lat]);
+  //   coordinates.style.display = "block";
+  //   coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
+}
+
+marker.on("dragend", onDragEnd);
 
 // map.addControl(new mapboxgl.NavigationControl());
