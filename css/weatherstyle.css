@@ -1,7 +1,7 @@
 * {
   box-sizing: border-box;
   font-family: "Nunito", sans-serif;
-  color: #eee;
+  color: #d9daf2;
 }
 body {
   margin: 0;
@@ -40,6 +40,10 @@ body {
   overflow: hidden;
 }
 #timeContainer {
+  position: absolute;
+  /* top: */
+  right: 9%;
+  top: 47%;
   height: 4em;
 }
 .chartTimestamp {
@@ -53,15 +57,27 @@ body {
   display: inline-block;
   width: 7.68%;
 }
-.chartTempText {
-  z-index: 11;
+#chartbg {
   position: absolute;
   top: 1em;
   width: calc(100% - 2em);
   aspect-ratio: 16/9;
 }
+.chartCol-bg {
+  display: inline-block;
+  width: 2.5%;
+  height: 100%;
+}
+.chartCol-bg1 {
+  background-color: #202429;
+}
+.chartCol-bg2 {
+  background-color: #2c3035;
+}
 #mainSVG {
-  width: 100%;
+  position: absolute;
+  z-index: 1;
+  width: calc(100% - 2em);
   aspect-ratio: 16/9;
   overflow: visible;
 }
@@ -69,7 +85,9 @@ body {
 .chartText {
   text-align: end;
   font-size: 0.3em;
-  text-shadow: rgb(255, 255, 255) 1px 0 5px;
+  /* color: #d9daf2; */
+  fill: #d9daf2;
+  /* text-shadow: rgb(255, 255, 255) 1px 0 5px; */
 }
 .mapContainer {
   right: 3em;

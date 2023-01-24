@@ -467,7 +467,7 @@ $.get("https://pokeapi.co/api/v2/pokemon/").done(function (data) {
   $.get(`https://pokeapi.co/api/v2/pokemon/?offset=0&limit=${data.count}`).done(
     (data2) => {
       data2.results.forEach((poke) => {
-        console.log(poke.name, i);
+        // console.log(poke.name, i);
         i++;
       });
     }
@@ -510,7 +510,7 @@ $.get("https://pokeapi.co/api/v2/pokemon/").done(function (data) {
   //   // console.log(poke.name, i);
   //   i++;
   // });
-  console.log(data);
+  // console.log(data);
 });
 
 // !! MINI-EXERCISE 1 !!
@@ -533,4 +533,57 @@ $.get("https://pokeapi.co/api/v2/pokemon/").done(function (data) {
 
      */
 
-console.log("*********************** jan20*************************");
+console.log("*********************** jan24 *************************");
+
+// Make a function, reverseStrings, that takes in an array of objects and reverses the value of the 'str' properties.
+
+const strs = [
+  {
+    id: 1,
+    str: "hello",
+  },
+  {
+    id: 2,
+    str: "world",
+  },
+  {
+    id: 3,
+    str: "codeup",
+  },
+  {
+    id: 4,
+    str: "x",
+  },
+];
+
+function reverseStrings(arr) {
+  let reversedArray = [];
+  arr.forEach((obj) => {
+    reversedArray.push({
+      id: obj.id,
+      str: obj.str.split("").reverse().join(""),
+    });
+  });
+  return reversedArray;
+}
+
+console.log(reverseStrings(strs)); // returns...
+
+// [
+// 	{
+// 		id: 1,
+// 		str: 'olleh'
+// 	},
+// 	{
+// 		id: 2,
+// 		str: 'dlrow'
+// 	},
+// 	{
+// 		id: 3,
+// 		str: 'puedoc'
+// 	},
+// 	{
+// 		id: 4,
+// 		str: 'x'
+// 	}
+// ]

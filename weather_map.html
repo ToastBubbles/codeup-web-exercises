@@ -35,6 +35,7 @@
           </div>
         </div>
         <div class="chart-container">
+          <div id="chartbg"></div>
           <svg id="mainSVG" viewBox="0 0 100 100" preserveAspectRatio="none">
             <defs>
               <linearGradient id="Gradient" x1="0" x2="0" y1="0" y2="1">
@@ -58,14 +59,23 @@
             <path
               d=""
               id="path1"
-              fill="url(#Gradient)"
-              stroke="transparent"
+              stroke="#49505c"
               stroke-width="0.5"
               fill="none"
               stroke-linejoin="round"
             />
           </svg>
-          <div class="chartTempText"></div>
+          <svg id="rainSVG" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path
+              d=""
+              id="path2"
+              stroke="#05f"
+              stroke-width="0.5"
+              fill="none"
+              stroke-linejoin="round"
+            />
+          </svg>
+
           <div id="timeContainer"></div>
         </div>
       </div>
