@@ -21,6 +21,7 @@
     <div class="wrapper">
       <div class="mainColumn">
         <div class="mapContainer">
+          <section id="currentWeather"></section>
           <div class="mapbg">
             <div class="mapbgExtension"></div>
             <div class="minimapmbg">
@@ -69,14 +70,16 @@
             <path
               d=""
               id="path2"
-              stroke="#05f"
-              stroke-width="0.5"
+              stroke="#58759e44"
+              stroke-width="0.25"
               fill="none"
               stroke-linejoin="round"
             />
           </svg>
 
           <div id="timeContainer"></div>
+
+          <div id="forecastContainer"></div>
         </div>
       </div>
     </div>
@@ -85,5 +88,6 @@
     <script src="./js/mapbox-geocoder-utils.js"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>
     <script src="./js/weather.js"></script>
+    <script src="./js/weather_chart.js"></script>
   </body>
 </html>

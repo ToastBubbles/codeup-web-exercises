@@ -9,6 +9,8 @@ body {
   background-color: #3d444e;
 }
 
+/* *************  generic styles ******************* */
+
 .wrapper {
   display: flex;
 }
@@ -20,18 +22,127 @@ body {
   display: hidden;
 }
 .mainColumn {
-  padding: 3em;
+  padding: 2em 3em 0 3em;
   /* display: flex; */
   width: 100%;
   aspect-ratio: 16/9;
 }
+.inline {
+  display: inline-block;
+}
+.dflex {
+  display: flex;
+}
+.fontMd {
+  font-size: 2em;
+  line-height: 1.2em;
+}
+.hr-line {
+  padding-top: 2%;
+  width: 90%;
+  border-bottom: solid #444a52 1px;
+}
+
+/* *************  Current Weather Display styles ******************* */
+#locationPin {
+  display: inline-block;
+  width: 6%;
+  aspect-ratio: 1/1;
+}
+#currentWeatherIcon {
+  /* display: inline-block; */
+  width: 20%;
+  aspect-ratio: 1/1;
+}
+.currentCity {
+  font-size: 2.2em;
+  width: 94%;
+  display: inline-block;
+}
+.currentWText {
+  line-height: 2.5em;
+}
+
+#currentWeather {
+  z-index: 20;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
+  left: -30%;
+  top: 5%;
+}
+
+/* **************  Forecast slides  ***************** */
+#forecastContainer {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  width: calc(100% - 2em);
+  aspect-ratio: 16/9;
+  background-color: #3d444e;
+  border-radius: 2% / 3%;
+  bottom: 1em;
+}
+
+.forecastTextDate {
+  margin-top: -10%;
+  margin-bottom: 2%;
+  font-size: 2em;
+  font-weight: bold;
+}
+.forecastCardText {
+  line-height: 1.4em;
+}
+.forecastCardTempText {
+  font-size: 2em;
+}
+.foreMoist {
+  display: flex;
+  justify-content: center;
+}
+#moisture {
+  width: 10%;
+  aspect-ratio: 1 / 1;
+}
+.forecastCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 23%;
+  height: 98%;
+
+  margin: 1%;
+  /* background-color: ; */
+  background-color: #5d757f;
+  border-radius: 5% /2%;
+}
+.forecastWeatherIcon {
+  width: 60%;
+  aspect-ratio: 1/1;
+}
+.forecastNightContainer {
+  display: flex;
+  align-items: center;
+}
+.forecastNightText {
+  font-size: 0.7em;
+}
+.forecastWeatherIconNight {
+  /* display: inline-block; */
+  width: 30%;
+  aspect-ratio: 1/1;
+}
+/* *************  chart style  ******************* */
+
 .chart-container {
   z-index: 10;
   position: absolute;
   display: inline-block;
 
   width: 40%;
-  aspect-ratio: 5/6;
+  aspect-ratio: 5/6.5;
   margin: auto;
   padding: 1em;
   background-color: #292e34;
@@ -43,7 +154,7 @@ body {
   position: absolute;
   /* top: */
   right: 9%;
-  top: 47%;
+  top: 45%;
   height: 4em;
 }
 .chartTimestamp {
@@ -76,6 +187,14 @@ body {
 }
 #mainSVG {
   position: absolute;
+  z-index: 2;
+  width: calc(100% - 2em);
+  aspect-ratio: 16/9;
+  overflow: visible;
+}
+
+#rainSVG {
+  position: absolute;
   z-index: 1;
   width: calc(100% - 2em);
   aspect-ratio: 16/9;
@@ -87,8 +206,11 @@ body {
   font-size: 0.3em;
   /* color: #d9daf2; */
   fill: #d9daf2;
+
   /* text-shadow: rgb(255, 255, 255) 1px 0 5px; */
 }
+
+/* ****************  map styles  ****************** */
 .mapContainer {
   right: 3em;
   display: inline-block;
