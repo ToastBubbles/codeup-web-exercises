@@ -83,5 +83,14 @@ function onDragEnd() {
   let lngLat = marker.getLngLat();
   callWeather([lngLat.lng, lngLat.lat]);
 }
+function mapClick(e) {
+  let coordinates = e.lngLat;
+  marker.setLngLat(coordinates);
+}
 defaultLocation();
+
 marker.on("dragend", onDragEnd);
+
+map.on("click", (e) => {
+  mapClick(e);
+});
