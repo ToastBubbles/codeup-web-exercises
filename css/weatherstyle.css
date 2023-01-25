@@ -32,6 +32,10 @@ body {
 .dflex {
   display: flex;
 }
+.dflexCenter {
+  display: flex;
+  align-items: center;
+}
 .fontMd {
   font-size: 2em;
   line-height: 1.2em;
@@ -48,10 +52,7 @@ body {
   width: 6%;
   aspect-ratio: 1/1;
 }
-.sunset-container {
-  display: flex;
-  align-items: center;
-}
+
 #sunset-icon {
   width: 10%;
   padding: 0 2% 0 2%;
@@ -63,6 +64,11 @@ body {
 }
 .currentCity {
   font-size: 2.2em;
+  width: 94%;
+  display: inline-block;
+}
+.currentCoords {
+  font-size: 1.4em;
   width: 94%;
   display: inline-block;
 }
@@ -128,10 +134,7 @@ body {
   width: 60%;
   aspect-ratio: 1/1;
 }
-.forecastNightContainer {
-  display: flex;
-  align-items: center;
-}
+
 .forecastNightText {
   font-size: 0.7em;
 }

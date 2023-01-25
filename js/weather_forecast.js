@@ -4,11 +4,20 @@ let forecast = document.getElementById("forecastContainer");
 function setCurrentWeatherInfo(data) {
   currentWeatherSection.innerHTML = "";
   let wData = data.list[0];
-  let weatherDataHTMLString = `<div><svg id="locationPin" fill="#eee" viewBox="0 0 16 16">
+  let locationName = "";
+  let fontClass = "";
+  if (data.city.name == "") {
+    locationName = `lat ${data.city.coord.lat}\nlon ${data.city.coord.lon}`;
+    fontClass = "currentCoords";
+  } else {
+    locationName = data.city.name;
+    fontClass = "currentCity";
+  }
+  let weatherDataHTMLString = `<div class='dflexCenter'><svg id="locationPin" fill="#eee" viewBox="0 0 16 16">
   <path
     d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"
   />
-</svg><div class="currentCity">${data.city.name}</div></div>
+</svg><div class="${fontClass}">${locationName}</div></div>
 <div class="dflex">
   <img id="currentWeatherIcon" src="http://openweathermap.org/img/wn/${wData.weather[0].icon.slice(
     0,
@@ -16,7 +25,7 @@ function setCurrentWeatherInfo(data) {
   )}n@2x.png"/>
   <div class="currentWText inline">${wData.weather[0].description}</div>
 </div>
-<div class="sunset-container">
+<div class="dflexCenter">
 <svg fill="#eee" id="sunset-icon" viewBox="0 0 16 16">
   <path d="M7.646 4.854a.5.5 0 0 0 .708 0l1.5-1.5a.5.5 0 0 0-.708-.708l-.646.647V1.5a.5.5 0 0 0-1 0v1.793l-.646-.647a.5.5 0 1 0-.708.708l1.5 1.5zm-5.303-.51a.5.5 0 0 1 .707 0l1.414 1.413a.5.5 0 0 1-.707.707L2.343 5.05a.5.5 0 0 1 0-.707zm11.314 0a.5.5 0 0 1 0 .706l-1.414 1.414a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zM8 7a3 3 0 0 1 2.599 4.5H5.4A3 3 0 0 1 8 7zm3.71 4.5a4 4 0 1 0-7.418 0H.499a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1h-3.79zM0 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 0 10zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
 </svg>
@@ -56,10 +65,6 @@ function translateMonth(int) {
 function getDate(timestamp) {
   var date = new Date(timestamp * 1000);
 
-  console.log(
-    date.toLocaleDateString("en-GB").split("/")[0],
-    translateMonth(date.toLocaleDateString("en-GB").split("/")[1])
-  ); // Prints: 06/05/2022
   return `${date.toLocaleDateString("en-GB").split("/")[0]} ${translateMonth(
     date.toLocaleDateString("en-GB").split("/")[1]
   )}`;
@@ -84,7 +89,7 @@ function generateForecastHTML(dataObj, index) {
     </div>
    
     <div  class='hr-line'></div>
-    <div class="forecastNightContainer">
+    <div class="dflexCenter">
     <img class="forecastWeatherIconNight" src="http://openweathermap.org/img/wn/${
       dataObj[index].iconNight
     }n@2x.png"/>
@@ -102,7 +107,6 @@ function generateForecastCards(data) {
   data.forEach((segment, index) => {
     if (checkTime(dateConversion(segment.dt))) {
       if (index + 6 < data.length) {
-        console.log(data[index + 6].weather);
         cardDataObj.push({
           high: high,
           low: low,
@@ -114,7 +118,6 @@ function generateForecastCards(data) {
           iconNight: data[index + 6].weather[0].icon.slice(0, -1),
         });
       } else {
-        console.log(data[index].weather);
         cardDataObj.push({
           high: high,
           low: low,

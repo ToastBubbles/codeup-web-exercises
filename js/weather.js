@@ -4,7 +4,6 @@ var map = new mapboxgl.Map({
   container: "map",
   style: "mapbox://styles/jeffneal11/cld4tjaah000c01o2ruyc3sq2",
   zoom: 10,
-
   center: [-98.4914, 29.4253],
 });
 
@@ -15,7 +14,6 @@ function callWeather(pos) {
     appid: keys.openweather,
     units: "imperial",
   }).done(function (data) {
-    console.log(data);
     updateCards(data.list);
     setCurrentWeatherInfo(data);
     generateForecastCards(data.list);
@@ -25,22 +23,27 @@ function callWeather(pos) {
 let userSearch = document.getElementById("locSearch");
 let userSearchBtn = document.getElementById("searchButton");
 
-userSearchBtn.addEventListener("click", (e) => {
-  e.preventDefault();
+userSearchBtn.onclick = (e) => {
+  updateLocation(e);
+};
+userSearch.onkeydown = (e) => {
+  if (e.keyCode === 13) {
+    updateLocation(e);
+  }
+};
+
+function updateLocation(event) {
+  event.preventDefault();
   let newLocation = userSearch.value;
   userSearch.value = "";
-
-  console.log(newLocation);
   if (newLocation.length > 1) {
     geocode(newLocation, mapKey).then(function (coordinates) {
-      console.log(coordinates, "new location", newLocation);
-
       marker.setLngLat(coordinates);
       callWeather(coordinates);
       flyToHere(coordinates);
     });
   }
-});
+}
 
 function flyToHere(coords) {
   map.flyTo({
@@ -57,7 +60,6 @@ if ("geolocation" in navigator) {
     flyToHere(coordinates);
 
     marker.setLngLat(coordinates).addTo(map);
-    console.log(coordinates);
   });
 } else {
   console.log("No Live Location Data");
@@ -69,10 +71,7 @@ const marker = new mapboxgl.Marker({
 
 function onDragEnd() {
   let lngLat = marker.getLngLat();
-  console.log(lngLat);
   callWeather([lngLat.lng, lngLat.lat]);
 }
 
 marker.on("dragend", onDragEnd);
-
-// map.addControl(new mapboxgl.NavigationControl());

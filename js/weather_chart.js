@@ -90,27 +90,12 @@ function calcPoint(temp, index, temps, high, low, type) {
 function dateConversion(timestamp) {
   let date = new Date(timestamp * 1000);
   let dateString = date.toLocaleTimeString("default");
-  //   let replaceVal = dateString.toString().slice(4, 4);
-  //   console.log(replaceVal, dateString);
+
   let arr = dateString.split(" ");
-  //   let arr2 = []
-  //arr[0].split(":");
-  //console.log(arr, arr[0].split(":"));
+
   let arr2 = arr[0].split(":");
   arr2.pop();
-  console.log(arr2.join(":") + arr[1]);
 
-  //   console.log(arr);
-  //   arr.splice(2, 1);
-  //   dateString = arr.join(":");
-
-  //dateString = dateString.replace(":00 ", "");
-  //   dateString = dateString.replace(
-  //     dateString.slice(dateString.length - 6, 4),
-  //     ""
-  //   );
-
-  //   return dateString;
   return arr2.join(":") + arr[1];
 }
 let dayToggle = false;
@@ -182,7 +167,7 @@ function drawChart(temps, high, low) {
     );
   });
   pointString += ` L 100 100 L 0 100 Z`;
-  console.log(pointString);
+
   svgPathHum.setAttribute("d", humPointString);
   document.getElementById("path1").setAttribute("d", pointString);
   svgParent.innerHTML += pointTextString;
