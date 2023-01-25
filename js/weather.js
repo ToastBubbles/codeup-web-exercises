@@ -86,6 +86,7 @@ function onDragEnd() {
 function mapClick(e) {
   let coordinates = e.lngLat;
   marker.setLngLat(coordinates);
+  callWeather([coordinates.lng, coordinates.lat]);
 }
 defaultLocation();
 
