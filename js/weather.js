@@ -9,17 +9,15 @@ var map = new mapboxgl.Map({
 });
 
 // ****************************** OpenWeather GET Request ************************************ \\
-function callWeather(pos) {
-  $.get("http://api.openweathermap.org/data/2.5/forecast", {
-    lat: pos[1],
-    lon: pos[0],
-    appid: keys.openweather,
-    units: "imperial",
-  }).done(function (data) {
-    updateCards(data.list);
-    setCurrentWeatherInfo(data);
-    generateForecastCards(data.list);
-  });
+
+async function callWeather(pos) {
+  let response = await fetch(
+    `http://api.openweathermap.org/data/2.5/forecast?lat=${pos[1]}&lon=${pos[0]}&appid=${keys.openweather}&units=imperial`
+  );
+  let convertedData = await response.json();
+  updateCards(convertedData.list);
+  setCurrentWeatherInfo(convertedData);
+  generateForecastCards(convertedData.list);
 }
 
 // ******************************* User Search Events ************************************* \\
