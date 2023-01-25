@@ -1,3 +1,4 @@
+// ****************************** Mapbox instantiation ************************************ \\
 let mapKey = keys.mapbox;
 mapboxgl.accessToken = mapKey;
 var map = new mapboxgl.Map({
@@ -7,6 +8,7 @@ var map = new mapboxgl.Map({
   center: [-98.4914, 29.4253],
 });
 
+// ****************************** OpenWeather GET Request ************************************ \\
 function callWeather(pos) {
   $.get("http://api.openweathermap.org/data/2.5/forecast", {
     lat: pos[1],
@@ -20,6 +22,7 @@ function callWeather(pos) {
   });
 }
 
+// ******************************* User Search Events ************************************* \\
 let userSearch = document.getElementById("locSearch");
 let userSearchBtn = document.getElementById("searchButton");
 
@@ -32,6 +35,7 @@ userSearch.onkeydown = (e) => {
   }
 };
 
+// **************************** Update Map when location changes ********************************** \\
 function updateLocation(event) {
   event.preventDefault();
   let newLocation = userSearch.value;
@@ -53,6 +57,8 @@ function flyToHere(coords) {
     essential: true,
   });
 }
+// ****************************** GoTo User Location on Startup ************************************ \\
+
 if ("geolocation" in navigator) {
   navigator.geolocation.getCurrentPosition((position) => {
     let coordinates = [position.coords.longitude, position.coords.latitude];
@@ -61,10 +67,16 @@ if ("geolocation" in navigator) {
 
     marker.setLngLat(coordinates).addTo(map);
   });
-} else {
-  console.log("No Live Location Data");
+}
+// ****************************** GoTo Default on Startup (SA) ************************************ \\
+function defaultLocation() {
+  let defaultCoord = [-98.4914, 29.4253];
+  callWeather(defaultCoord);
+  flyToHere(defaultCoord);
+  marker.setLngLat(defaultCoord).addTo(map);
 }
 
+// ****************************** Marker Instantiation & events ************************************ \\
 const marker = new mapboxgl.Marker({
   draggable: true,
 });
@@ -73,5 +85,5 @@ function onDragEnd() {
   let lngLat = marker.getLngLat();
   callWeather([lngLat.lng, lngLat.lat]);
 }
-
+defaultLocation();
 marker.on("dragend", onDragEnd);

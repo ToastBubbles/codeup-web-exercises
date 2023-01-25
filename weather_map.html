@@ -15,14 +15,15 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/weatherstyle.css" />
-    <script src="./js/keys.js"></script>
 
     <title>Whether</title>
   </head>
   <body>
     <div class="wrapper">
       <div class="mainColumn">
+        <!-- ----------------- Map and Map background -------------------- -->
         <div class="mapContainer">
+          <!-- ------------- User Search ---------------- -->
           <div class="searchContainer">
             <input id="locSearch" type="text" placeholder="Wataburger..." />
             <input id="searchButton" type="button" value="Search" />
@@ -32,6 +33,7 @@
             <section id="currentWeather"></section>
             <div class="mapbgExtension"></div>
             <div class="minimapmbg">
+              <!-- svg for map enlargement -->
               <svg id="mapExpand" fill="#eee" viewBox="0 0 16 16">
                 <path
                   fill-rule="evenodd"
@@ -39,17 +41,21 @@
                 ></path>
               </svg>
             </div>
+            <!-- Map -->
             <div id="map"></div>
           </div>
         </div>
         <div class="chart-container">
+          <!-- ----------------- Temp/Humidity graph -------------------- -->
           <div id="chartbg"></div>
+          <!-- SVG for temp chart (dynamic) -->
           <svg
             id="mainSVG"
             viewBox="0 0 100 100"
             preserveAspectRatio="none"
           ></svg>
-          <svg id="rainSVG" viewBox="0 0 100 100" preserveAspectRatio="none">
+          <!-- SVG for humidity -->
+          <svg id="humSVG" viewBox="0 0 100 100" preserveAspectRatio="none">
             <path
               d=""
               id="path2"
@@ -59,14 +65,14 @@
               stroke-linejoin="round"
             />
           </svg>
-
+          <!-- Container for time increments below graph (dynamic) -->
           <div id="timeContainer"></div>
-
+          <!-- Container for forecast cards (dynamic) -->
           <div id="forecastContainer"></div>
         </div>
       </div>
     </div>
-
+    <script src="./js/keys.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script src="./js/mapbox-geocoder-utils.js"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/v2.9.1/mapbox-gl.js"></script>

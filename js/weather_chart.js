@@ -1,14 +1,16 @@
 let chartTimes = document.getElementById("timeContainer");
-
 let svgPathHum = document.getElementById("path2");
 let svgParent = document.getElementById("mainSVG");
 let chartbg = document.getElementById("chartbg");
+
+// ****************************** Chart Startup - Re-generates chart when new Weather Data is Recieved ************************************ \\
 function updateCards(forecast3) {
-  let lowTemp = 0;
-  let highTemp = 0;
+  let lowTemp = forecast3[0].main.temp;
+  let highTemp = forecast3[0].main.temp;
   let setTemp = false;
 
   forecast3.forEach((increment3) => {
+    // *** Set High / Low ranges for chart *** \\
     if (!setTemp) {
       lowTemp = increment3.main.temp;
       highTemp = increment3.main.temp;
@@ -25,12 +27,15 @@ function updateCards(forecast3) {
   });
   drawChart(forecast3, highTemp, lowTemp);
 }
-
+// ****************************** Calculates Points & Text for SVG Chart || returns HTML ************************************ \\
 function calcPoint(temp, index, temps, high, low, type) {
   let showPeaksOnly = true;
 
+  // ********* Calculates unformatted points for SVG chart (high is used to check if temp data is being used vs humidity) ********* \\
   if (type === "line" && high !== "none") {
+    // ********* Unformatted chart points for Tempurature ********* \\
     if (index + 1 == temps.length) {
+      // *** Round off last point to 100 *** \\
       return ` 100 ${(100 - ((temp - low) / (high - low)) * 100).toFixed(2)}`;
     } else {
       return ` ${Math.round((index / temps.length) * 100)} ${(
@@ -39,7 +44,9 @@ function calcPoint(temp, index, temps, high, low, type) {
       ).toFixed(2)}`;
     }
   } else if (type === "line" && high === "none") {
+    // ********* Unformatted chart points for Humidity ********* \\
     if (index + 1 == temps.length) {
+      // *** Round off last point to 100 *** \\
       return ` 100 ${100 - temp.toFixed(2)}`;
     } else {
       return ` ${Math.round((index / temps.length) * 100)} ${
@@ -47,6 +54,7 @@ function calcPoint(temp, index, temps, high, low, type) {
       }`;
     }
   } else if (!showPeaksOnly) {
+    // ********* HTML that shows temps inside SVG chart (All) ********* \\
     return `<text 
     x="${Math.round((index / temps.length) * 100)}" 
     y="${(100 - ((temp - low) / (high - low)) * 100).toFixed(2)}" 
@@ -60,6 +68,8 @@ function calcPoint(temp, index, temps, high, low, type) {
           temp > temps[index - 1].main.temp) ||
         (temp < temps[index + 1].main.temp && temp < temps[index - 1].main.temp)
       ) {
+        // ********* HTML that shows temps inside SVG chart (High/Low/First/Last Only)********* \\
+        // ***** Generates Temp Text for High/Low each Day ***** \\
         return `<text 
                 x="${Math.round((index / temps.length) * 100) - 2}" 
                 y="${(100 - ((temp - low) / (high - low)) * 100).toFixed(2)}" 
@@ -70,23 +80,21 @@ function calcPoint(temp, index, temps, high, low, type) {
         return ``;
       }
     } else if (index == temps.length - 1) {
+      // ***** Temp Text for Last Point ***** \\
       return `<text 
         x="${Math.round((index / temps.length) * 100) - 7}" 
         y="${(100 - ((temp - low) / (high - low)) * 100).toFixed(2)}" 
- 
-     
         class="chartText">${Math.round(temp)}°F</text>`;
     } else {
+      // ***** Temp Text for First Point ***** \\
       return `<text 
         x="${Math.round((index / temps.length) * 100)}" 
         y="${(100 - ((temp - low) / (high - low)) * 100).toFixed(2)}" 
-    
-     
         class="chartText">${Math.round(temp)}°F</text>`;
     }
   }
 }
-
+// ****************************** Converts timestamps to 'HH:MMAM' ************************************ \\
 function dateConversion(timestamp) {
   let date = new Date(timestamp * 1000);
   let dateString = date.toLocaleTimeString("default");
@@ -98,6 +106,7 @@ function dateConversion(timestamp) {
 
   return arr2.join(":") + arr[1];
 }
+// ****************************** Alternates Background Color of Chart to Show Progression of Days ************************************ \\
 let dayToggle = false;
 function generateChartbg(time) {
   if (time === "12:00AM") {
@@ -109,6 +118,7 @@ function generateChartbg(time) {
   return `<div class="chartCol-bg chartCol-bg2"></div>`;
 }
 
+// ****************************** SVG Handler - Formats points into SVG-readable path data ************************************ \\
 function drawChart(temps, high, low) {
   svgParent.innerHTML = `<path
   d=""
@@ -121,10 +131,11 @@ function drawChart(temps, high, low) {
   chartTimes.innerHTML = "";
   chartbg.innerHTML = "";
 
-  high *= 1.1;
-  low *= 0.9;
-  let alternator = 0;
+  // **** Add simulated Vertical Padding (flips multiplier to handle negative temps) **** \\
+  high >= 0 ? (high *= 1.1) : (high *= 0.9);
+  low >= 0 ? (low *= 0.9) : (low *= 1.1);
 
+  let alternator = 0;
   let pointString = "";
   let humPointString = "";
   let pointTextString = "";

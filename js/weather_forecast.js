@@ -1,6 +1,7 @@
 let currentWeatherSection = document.getElementById("currentWeather");
 let forecast = document.getElementById("forecastContainer");
-// let cwImg = document.getElementById("currentWeatherIcon");
+
+// ****************************** HTML Display for Current Weather at given Location ************************************ \\
 function setCurrentWeatherInfo(data) {
   currentWeatherSection.innerHTML = "";
   let wData = data.list[0];
@@ -40,12 +41,15 @@ function setCurrentWeatherInfo(data) {
 
   currentWeatherSection.innerHTML += weatherDataHTMLString;
 }
+
+// ****************************** Checks if Day of Time Increments ************************************ \\
 function checkTime(str) {
   if (str === "12:00AM") {
     return true;
   }
 }
 
+// ****************************** Numerical to English Month Translation ************************************ \\
 function translateMonth(int) {
   let months = [
     "Jan",
@@ -62,6 +66,8 @@ function translateMonth(int) {
   ];
   return months[int - 1];
 }
+
+// ****************************** Formats timestamp as 'DD MMM' ************************************ \\
 function getDate(timestamp) {
   var date = new Date(timestamp * 1000);
 
@@ -69,6 +75,7 @@ function getDate(timestamp) {
     date.toLocaleDateString("en-GB").split("/")[1]
   )}`;
 }
+// ****************************** Generates Forcast card HTML ************************************ \\
 function generateForecastHTML(dataObj, index) {
   return `<div class="forecastCard">
     <img id="forecastWeatherIcon" src="http://openweathermap.org/img/wn/${
@@ -98,6 +105,7 @@ function generateForecastHTML(dataObj, index) {
     <div class="forecastCardText ">${dataObj[index].low.toFixed(0)}°F</div>
     </div>`;
 }
+// ****************************** Generates Forecast Card Data ************************************ \\
 function generateForecastCards(data) {
   let cardDataObj = [];
 
