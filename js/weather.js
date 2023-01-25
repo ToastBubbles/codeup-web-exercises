@@ -34,27 +34,14 @@ userSearchBtn.addEventListener("click", (e) => {
   if (newLocation.length > 1) {
     geocode(newLocation, mapKey).then(function (coordinates) {
       console.log(coordinates, "new location", newLocation);
-      //   resturant.coords = coordinates;
-      //   placeMarkerAndPopup(resturant, myKey, resturant.coords, map);
-      //   checkVal++;
-      //   if (checkVal === 1) {
+
       marker.setLngLat(coordinates);
       callWeather(coordinates);
       flyToHere(coordinates);
-      //map.setCenter(coordinates); //set camera to first straunt
-      //   } else if (checkVal === favResturants.length - 1) {
-      // console.log("done");
-
-      // var group = new L.featureGroup(markerGroup);
-      //map.fitBounds(group.getBounds());
-      // console.log(markerGroup);
-      // map.fitBounds(markerGroup, { padding: 100 });
-      //   }
     });
-    //
   }
 });
-// userSearch.addEventListener("")
+
 function flyToHere(coords) {
   map.flyTo({
     center: coords,
@@ -68,8 +55,7 @@ if ("geolocation" in navigator) {
     let coordinates = [position.coords.longitude, position.coords.latitude];
     callWeather(coordinates);
     flyToHere(coordinates);
-    // map.setZoom(18);
-    // map.setCenter(coordinates);
+
     marker.setLngLat(coordinates).addTo(map);
     console.log(coordinates);
   });
@@ -83,13 +69,8 @@ const marker = new mapboxgl.Marker({
 
 function onDragEnd() {
   let lngLat = marker.getLngLat();
-
-  //   console.log([lngLat[0].toFixed(7), lngLat[1].toFixed(7)]);
-  //   callWeather([lngLat[0].toFixed(7), lngLat[1].toFixed(7)]);
   console.log(lngLat);
   callWeather([lngLat.lng, lngLat.lat]);
-  //   coordinates.style.display = "block";
-  //   coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
 }
 
 marker.on("dragend", onDragEnd);

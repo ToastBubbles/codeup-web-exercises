@@ -14,21 +14,24 @@ function setCurrentWeatherInfo(data) {
     0,
     -1
   )}n@2x.png"/>
-  <div class="currentWText inline">${wData.weather[0].description}</div></div>
-  <div class="currentWText fontMd">${Math.round(
+  <div class="currentWText inline">${wData.weather[0].description}</div>
+</div>
+<div class="sunset-container">
+<svg fill="#eee" id="sunset-icon" viewBox="0 0 16 16">
+  <path d="M7.646 4.854a.5.5 0 0 0 .708 0l1.5-1.5a.5.5 0 0 0-.708-.708l-.646.647V1.5a.5.5 0 0 0-1 0v1.793l-.646-.647a.5.5 0 1 0-.708.708l1.5 1.5zm-5.303-.51a.5.5 0 0 1 .707 0l1.414 1.413a.5.5 0 0 1-.707.707L2.343 5.05a.5.5 0 0 1 0-.707zm11.314 0a.5.5 0 0 1 0 .706l-1.414 1.414a.5.5 0 1 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zM8 7a3 3 0 0 1 2.599 4.5H5.4A3 3 0 0 1 8 7zm3.71 4.5a4 4 0 1 0-7.418 0H.499a.5.5 0 0 0 0 1h15a.5.5 0 0 0 0-1h-3.79zM0 10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2A.5.5 0 0 1 0 10zm13 0a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5z"/>
+</svg>
+   <div>${dateConversion(data.city.sunset)}</div>
+</div>
+
+<div class="currentWText fontMd">${Math.round(
     wData.main.temp
   )}°F</div><div class="currentWText">Feels Like ${Math.round(
     wData.main.feels_like
   )}°F</div><div class="currentWText">${wData.main.humidity}% Humidity</div>`;
 
-  //   let wIconLink = `http://openweathermap.org/img/wn/${wData.weather[0].slice(0, -1)}n@2x.png`
-  // let iconStr =
-  //   cwImg.src = ;
-
   currentWeatherSection.innerHTML += weatherDataHTMLString;
 }
 function checkTime(str) {
-  //   console.log(str);
   if (str === "12:00AM") {
     return true;
   }
@@ -52,8 +55,7 @@ function translateMonth(int) {
 }
 function getDate(timestamp) {
   var date = new Date(timestamp * 1000);
-  //   console.log(timestamp);
-  //   console.log(date.toLocaleDateString("en-US"));
+
   console.log(
     date.toLocaleDateString("en-GB").split("/")[0],
     translateMonth(date.toLocaleDateString("en-GB").split("/")[1])
@@ -63,9 +65,6 @@ function getDate(timestamp) {
   )}`;
 }
 function generateForecastHTML(dataObj, index) {
-  //   console.log(dataObj, index);
-  //   console.log(dataObj[index].date);
-
   return `<div class="forecastCard">
     <img id="forecastWeatherIcon" src="http://openweathermap.org/img/wn/${
       dataObj[index].iconDay
@@ -96,14 +95,12 @@ function generateForecastHTML(dataObj, index) {
 }
 function generateForecastCards(data) {
   let cardDataObj = [];
-  //   console.log(data);
+
   let high = data[0].main.temp;
   let low = data[0].main.temp;
-  //   let dailyTemps = [];
+
   data.forEach((segment, index) => {
     if (checkTime(dateConversion(segment.dt))) {
-      //   console.log("begin new day", high, low);
-      //   console.log(data[index].dt);
       if (index + 6 < data.length) {
         console.log(data[index + 6].weather);
         cardDataObj.push({
@@ -113,11 +110,8 @@ function generateForecastCards(data) {
           moisture: data[index + 3].main.humidity,
           weatherDay: data[index + 3].weather[0].description,
           weatherNight: data[index + 6].weather[0].description,
-          //   iconDay: data[index + 3].weather[0].icon.slice(0, -1),
           iconDay: data[index + 3].weather[0].icon,
           iconNight: data[index + 6].weather[0].icon.slice(0, -1),
-
-          //   iconNight: data[index + 6].weather[0].icon,
         });
       } else {
         console.log(data[index].weather);
@@ -126,19 +120,15 @@ function generateForecastCards(data) {
           low: low,
           date: data[index].dt,
           moisture: segment.main.humidity,
-          //   iconDay: data[index].weather[0].icon.slice(0, -1),
           weatherDay: data[index].weather[0].description,
           weatherNight: data[index].weather[0].description,
           iconDay: data[index].weather[0].icon.slice(0, -1) + "d",
           iconNight: data[index].weather[0].icon.slice(0, -1),
-
-          //   iconNight: data[index].weather[0].icon,
         });
       }
 
       high = segment.main.temp;
       low = segment.main.temp;
-      //   dailyTemps = [];
     } else {
       if (segment.main.temp > high) {
         high = segment.main.temp;
@@ -149,7 +139,7 @@ function generateForecastCards(data) {
   });
   let numberOfCards = 4;
   forecast.innerHTML = "";
-  for (let i = 1; i <= numberOfCards; i++) {
+  for (let i = 0; i < numberOfCards; i++) {
     forecast.innerHTML += generateForecastHTML(cardDataObj, i);
   }
 }
