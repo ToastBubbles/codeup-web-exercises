@@ -36,21 +36,24 @@ const users = [
   },
 ];
 
-let filteredUsers = users.filter((user) => user.languages.length >= 3);
-let emails = users.map((user) => user.email);
-let totalYears = users.reduce((acc, user) => {
+const filteredUsers = users.filter((user) => user.languages.length >= 3);
+
+const emails = users.map((user) => user.email);
+
+const totalYears = users.reduce((acc, user) => {
   return acc + user.yearsOfExperience;
 }, 0);
 
-let longestEmail = users.reduce((a, b) => {
+const longestEmail = users.reduce((a, b) => {
   return a.email.length > b.email.length ? a : b;
 });
 
-let nameStr = users.reduce((acc, user) => {
-  return `${acc} ${user.name}`;
-}, "your instructors are:");
+const nameStr =
+  users
+    .reduce((acc, user) => `${acc} ${user.name},`, "your instructors are:")
+    .slice(0, -1) + ".";
 
-let uniqueLangs = users.reduce((acc, user) => {
+const uniqueLangs = users.reduce((acc, user) => {
   for (let lang of user.languages) {
     if (!acc.includes(lang)) {
       acc.push(lang);
