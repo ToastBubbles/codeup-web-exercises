@@ -49,6 +49,7 @@ let longestEmail = users.reduce((a, b) => {
 let nameStr = users.reduce((acc, user) => {
   return `${acc} ${user.name}`;
 }, "your instructors are:");
+
 let uniqueLangs = users.reduce((acc, user) => {
   for (let lang of user.languages) {
     if (!acc.includes(lang)) {
@@ -57,12 +58,17 @@ let uniqueLangs = users.reduce((acc, user) => {
   }
   return acc;
 }, []);
+
 console.log(uniqueLangs);
+
 console.log(nameStr);
 
 console.log(longestEmail);
+
 console.log(totalYears);
+
 console.log(totalYears / users.length);
+
 console.log(emails);
 
 console.log(filteredUsers);
